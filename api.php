@@ -27,8 +27,6 @@ function fehler($message)
     exit;
 }
 
-
-
 /** 
  * URI (Uniform Resource Identifier) – Der Dateiname
  * URL (Uniform Resource Locator) – Eine Webseitenadresse – ist eine Unterart des URI
