@@ -1,0 +1,690 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --grey-extra-light: #f5f5f5;
+    --grey-light: #ccc;
+    --grey-medium: #7f7f7f;
+    --grey-dark: #666;
+    --grey-slate: #708090;
+    --grey-extra-dark: #333;
+    --soft-blue-light: #a8dadc;
+    --soft-blue: #457b9d;
+    --soft-blue-dark: #334a6b;
+    --soft-blue-extra-dark: #1d3557;
+    --soft-green-extra-light: #cbddab;
+    --soft-green-light: #a3b18a;
+    --soft-green: #588157;
+    --soft-green-dark: #3a5a40;
+    --soft-green-extra-dark: #344e41;
+    --soft-red: #d62828;
+    --soft-red-dark: #c1121f;
+    --soft-red-extra-dark: #780000;
+    --soft-orange-extra-light: #fee8bd;
+    --soft-orange-light: #fcbf49;
+    --soft-orange: #F77F00;
+    --soft-orange-dark: #944d00;
+    --soft-yellow-light: #ffdd00;
+    --soft-yellow: #ffc300;
+    --soft-beige: #EAE2B7;
+}
+
+/* Open Sans */
+@font-face {
+    font-family: "OpenSans-Light";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Light.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-LightItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-LightItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-Regular";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Regular.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-RegularItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Italic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-Medium";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Medium.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-MediumItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-MediumItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-SemiBold";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-SemiBold.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-SemiBoldItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-SemiBoldItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-Bold";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Bold.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-BoldItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-BoldItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-ExtraBold";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-ExtraBold.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-ExtraBoldItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-ExtraBoldItalic.ttf)
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    background-color: var(--grey-light);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#admin-header {
+    height: 15vw;
+    width: 100%;
+    background-color: var(--grey-extra-dark);
+}
+
+.admin-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 15vw;
+    margin: 0 5%;
+    padding: 0 5vw;
+}
+
+#yummy-logo-src {
+    height: 8vw;
+}
+
+#login-info-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vw;
+    color: var(--white);
+}
+
+#side-nav-icon-src {
+    height: 8vw;
+    cursor: pointer;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+}
+
+.admin-main-wrapper {
+    display: block;
+    width: 90%;
+    margin: 0 5%;
+    min-height: calc(100vh - 25vw);
+    background-color: var(--white);
+}
+
+.admin-inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vw;
+    width: fit-content;
+}
+
+
+/* TOP NAV */
+.top-nav {
+    display: none;
+}
+
+/* TOP NAV END */
+
+
+/* SIDE NAV */
+.side-nav {
+    position: fixed;
+    right: 5vw;
+    width: 0;
+    background-color: var(--grey-light);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.closebtn {
+    float: right;
+    font-size: 15vw;
+    line-height: 10vw;
+    color: var(--grey-extra-dark);
+    text-decoration: none;
+    margin-left: 190px;
+    margin-right: 5vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#side-nav-ul {
+    list-style-type: none;
+    margin: 20px;
+    padding: 0;
+    overflow: hidden;
+}
+
+#side-nav-ul li {
+    border-bottom: 4px solid var(--grey-light);
+}
+
+#side-nav-ul li:last-child {
+    border-bottom: none;
+}
+
+.main-li-a {
+    display: block;
+    width: 200px;
+    height: 60px;
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--soft-orange);
+}
+
+.base-li-a {
+    display: block;
+    width: 200px;
+    height: 60px;
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--grey-dark);
+}
+
+#side-nav-ul li a:hover:not(.active) {
+    background-color: var(--soft-green);
+}
+
+.active {
+    background-color: var(--soft-green);
+}
+
+/* SIDE NAV END*/
+
+
+#admin-toptext {
+    text-align: center;
+}
+
+#admin-headline {
+    font-family: "OpenSans-Medium", Arial, Helvetica, sans-serif;
+    font-size: calc(100vw / 12);
+    line-height: calc(100vw / 10);
+    color: var(--soft-orange);
+    margin: 1vw 0;
+}
+
+#admin-subline {
+    font-family: "OpenSans-Medium", Arial, Helvetica, sans-serif;
+    font-size: calc(100vw / 25);
+    color: var(--grey-extra-dark);
+    padding-top: 1vw;
+    padding-bottom: 7vw;
+}
+
+
+/* LOGIN */
+.admin-form {
+    display: flex;
+    justify-content: center;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item label {
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    font-size: calc(100vw / 25);
+    color: var(--grey-extra-dark);
+    padding-bottom: 1vw;
+}
+
+.form-item input {
+    border-radius: 0;
+    border: solid 1px;
+    color: var(--grey-extra-dark);
+    width: 70vw;
+    height: 10vw;
+}
+
+.admin-form div {
+    padding-bottom: 8vw;
+}
+
+#button-1 {
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    font-size: calc(100vw / 20);
+    border: none;
+    background-color: var(--soft-orange);
+    color: var(--white);
+    padding: 3vw;
+    text-align: center;
+    width: 70vw;
+    height: 20vw;
+    cursor: pointer;
+
+}
+
+#button-1:hover {
+    transition: transform .5s ease;
+    transform: scale(0.9);
+    background-color: var(--soft-green);
+}
+
+/* LOGIN END */
+
+
+/* SUB NAV */
+#sub-nav-ul {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sub-nav-li {
+    border-bottom: 10px solid var(--white);
+}
+
+.sub-nav-li:last-child {
+    border-bottom: none;
+}
+
+.sub-nav-li-a {
+    display: block;
+    width: 50vw;
+    height: 15vw;
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    font-size: 5vw;
+    line-height: 15vw;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--grey-dark);
+}
+
+.sub-nav-li-a:hover {
+    background-color: var(--soft-green);
+}
+
+/* SUB NAV END */
+
+#admin-footer-end {
+    height: 10vw;
+    width: 100%;
+    background-color: var(--grey-extra-dark);
+}
+
+#admin-footer-end-text {
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    color: var(--white);
+    text-align: center;
+    font-size: 3vw;
+    line-height: 3vw;
+    padding: 3.5vw 0;
+}
+
+#admin-footer-end-text a {
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    color: var(--white);
+    font-size: 3vw;
+    line-height: 3vw;
+    text-decoration: none;
+}
+
+#admin-footer-end-text a:hover {
+    color: var(--soft-yellow);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+@media (min-width: 600px) {
+
+    /* SIDE NAV */
+    #side-nav-icon-src {
+        display: none;
+    }
+
+    .side-nav {
+        display: none;
+    }
+
+    /* SIDE NAV END */
+
+
+    #admin-header {
+        height: 8vw;
+    }
+
+    .admin-header-container {
+        height: 8vw;
+        padding: 0 3vw;
+    }
+
+    #yummy-logo-src {
+        height: 5vw;
+    }
+
+    #login-info-text {
+        font-size: 2vw;
+    }
+
+    .admin-main-wrapper {
+        min-height: calc(100vh - 16vw);
+    }
+
+    /* TOP NAV */
+    .top-nav {
+        display: block;
+        width: auto;
+        background-color: var(--grey-light);
+        overflow-x: hidden;
+    }
+
+    #top-nav-ul {
+        list-style: none;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #top-nav-ul li {
+        float: left;
+        border-right: .5vw solid var(--white);
+        width: calc(100% / 6);
+    }
+
+    #top-nav-ul li:last-child {
+        border-right: none;
+    }
+
+    .main-li-a {
+        display: block;
+        width: auto;
+        height: auto;
+        padding: 0;
+        font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+        font-size: 2vw;
+        line-height: 8vw;
+        color: var(--white);
+        text-align: center;
+        text-decoration: none;
+        background-color: var(--soft-orange);
+    }
+
+    .base-li-a {
+        display: block;
+        width: auto;
+        height: auto;
+        padding: 0;
+        font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+        font-size: 2vw;
+        line-height: 8vw;
+        color: var(--white);
+        text-align: center;
+        text-decoration: none;
+        background-color: var(--grey-dark);
+    }
+
+    #top-nav-ul li a:hover:not(.active) {
+        background-color: var(--soft-green);
+    }
+
+    /* TOP NAV END */
+
+
+    .admin-inner-wrapper {
+        padding: 3vw;
+        width: auto;
+    }
+
+    #admin-headline {
+        font-size: calc(100vw / 25);
+        line-height: calc(100vw / 25);
+        margin: 1vw 0;
+    }
+
+    #admin-subline {
+        font-size: calc(100vw / 45);
+        padding-top: 0;
+        padding-bottom: 3vw;
+    }
+
+    /* LOGIN */
+    .admin-form {
+        margin-top: 4vw;
+    }
+
+    .form-item label {
+        font-size: calc(100vw / 40);
+        padding-bottom: 1vw;
+    }
+
+    .form-item input {
+        width: 50vw;
+        height: 8vw;
+    }
+
+    .admin-form div {
+        padding-bottom: 5vw;
+    }
+
+    #button-1 {
+        font-size: calc(100vw / 30);
+        margin-top: 2vw;
+        padding: 2vw;
+        width: 50vw;
+        height: 12vw;
+
+    }
+
+    /* LOGIN END */
+
+
+    /* SUB NAV */
+    #sub-nav-ul {
+        display: flex;
+        margin-top: 2vw;
+    }
+
+    .sub-nav-li {
+        border-bottom: none;
+        border-right: 2vw solid var(--white);
+    }
+
+    .sub-nav-li:last-child {
+        border-right: none;
+    }
+
+    .sub-nav-li-a {
+        width: 24vw;
+        height: 10vw;
+        font-size: 2.5vw;
+        line-height: 10vw;
+    }
+
+    /* SUB NAV END */
+
+
+    #admin-footer-end {
+        height: 8vw;
+    }
+
+    #admin-footer-end-text {
+        font-size: 1.5vw;
+        line-height: 2vw;
+        padding: 3vw 0;
+    }
+
+    #admin-footer-end-text a {
+        font-size: 1.5vw;
+        line-height: 2vw;
+    }
+
+}
+
+
+
+@media (min-width: 1200px) {
+
+    #admin-header {
+        height: 80px;
+    }
+
+    .admin-header-container {
+        max-width: 1200px;
+        height: 80px;
+        margin: auto;
+        padding: 0 50px;
+    }
+
+    #login-info-text {
+        font-size: 20px;
+    }
+
+    #yummy-logo-src {
+        height: 50px;
+    }
+
+    .admin-main-wrapper {
+        max-width: 1200px;
+        min-height: calc(100vh - 160px);
+        margin: auto;
+        padding: 0;
+    }
+
+    /* TOP NAV */
+    .main-li-a {
+        font-size: 20px;
+        line-height: 100px;
+    }
+
+    .base-li-a {
+        font-size: 20px;
+        line-height: 100px;
+    }
+
+    /* TOP NAV END */
+
+    .admin-inner-wrapper {
+        padding: 50px;
+    }
+
+    #admin-headline {
+        font-size: 40px;
+        line-height: 40px;
+        color: var(--soft-orange);
+        margin: 10px 0;
+    }
+
+    #admin-subline {
+        font-size: 22px;
+        padding-top: 0;
+        padding-bottom: 40px;
+    }
+
+
+    /* LOGIN */
+    .admin-form {
+        margin-top: 0;
+    }
+
+    .form-item label {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+
+    .form-item input {
+        border: solid 1px;
+        width: 400px;
+        height: 50px;
+    }
+
+    .admin-form div {
+        padding-bottom: 30px;
+    }
+
+    #button-1 {
+        font-size: 40px;
+        margin-top: 20px;
+        padding: 20px;
+        width: 400px;
+        height: 100px;
+    }
+
+    /* LOGIN END*/
+
+
+    /* SUB NAV */
+    #sub-nav-ul {
+        margin-top: 20px;
+    }
+
+    .sub-nav-li {
+        border-right: 10px solid var(--white);
+    }
+
+    .sub-nav-li-a {
+        width: 195px;
+        height: 60px;
+        font-size: 20px;
+        line-height: 60px;
+    }
+
+    /* SUB NAV END */
+
+
+    #admin-footer-end {
+        height: 80px;
+    }
+
+    #admin-footer-end-text {
+        font-size: 16px;
+        line-height: 30px;
+        padding: 25px 0;
+    }
+
+    #admin-footer-end-text a {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+}
