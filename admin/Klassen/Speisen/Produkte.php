@@ -60,6 +60,7 @@ class Produkte
         return $produkteGesamtHs;
     }
 
+
     public function alleProdukteNs(): array
     {
         $db = Mysql::getInstanz();
@@ -73,6 +74,7 @@ class Produkte
         }
         return $produkteGesamtNs;
     }
+
 
     public function alleProdukteGe(): array
     {
