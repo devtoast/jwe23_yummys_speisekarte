@@ -12,7 +12,7 @@ class Produkt extends DbRowAbstract
     public function kategorie(): Kategorie
     // Klasse Kategorie (= Kategorie.php)
     {
-        return new Kategorie($this->kategorien_id);
+        return new Kategorie($this->kategorie_id);
         // Gibt ein Objekt Kategorie zurück (: Kategorie)
     }
 }

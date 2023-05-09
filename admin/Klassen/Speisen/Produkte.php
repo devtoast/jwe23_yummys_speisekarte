@@ -29,6 +29,64 @@ class Produkte
         }
         return $produkteGesamt;
     }
+
+
+    public function alleProdukteVs(): array
+    {
+        $db = Mysql::getInstanz();
+        // Mit DB verbinden (aus Mysql)
+
+        $produkteGesamtVs = array();
+
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 1");
+        while ($row = $result->fetch_assoc()) {
+            $produkteGesamtVs[] = new Produkt($row);
+        }
+        return $produkteGesamtVs;
+    }
+
+
+    public function alleProdukteHs(): array
+    {
+        $db = Mysql::getInstanz();
+        // Mit DB verbinden (aus Mysql)
+
+        $produkteGesamtHs = array();
+
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 2");
+        while ($row = $result->fetch_assoc()) {
+            $produkteGesamtHs[] = new Produkt($row);
+        }
+        return $produkteGesamtHs;
+    }
+
+    public function alleProdukteNs(): array
+    {
+        $db = Mysql::getInstanz();
+        // Mit DB verbinden (aus Mysql)
+
+        $produkteGesamtNs = array();
+
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 3");
+        while ($row = $result->fetch_assoc()) {
+            $produkteGesamtNs[] = new Produkt($row);
+        }
+        return $produkteGesamtNs;
+    }
+
+    public function alleProdukteGe(): array
+    {
+        $db = Mysql::getInstanz();
+        // Mit DB verbinden (aus Mysql)
+
+        $produkteGesamtGe = array();
+
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 4");
+        while ($row = $result->fetch_assoc()) {
+            $produkteGesamtGe[] = new Produkt($row);
+        }
+        return $produkteGesamtGe;
+    }
 }
 
 /* echo "<pre>";

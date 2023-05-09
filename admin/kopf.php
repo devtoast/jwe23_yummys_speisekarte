@@ -38,7 +38,7 @@
 
             <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav()">&times;</a>
             <ul id="side-nav-ul">
-                <li> <a class="main-li-a" href="">Produkte</a> </li>
+                <li> <a class="main-li-a" href="produkt_liste.php">Produkte</a> </li>
                 <li> <a class="main-li-a" href="produkt_neu.php">Produkt Neu</a> </li>
                 <li> <a class="main-li-a" href="">Kategorien</a> </li>
                 <li> <a class="main-li-a" href="">Restaurants</a> </li>
@@ -53,7 +53,7 @@
             <ul id="top-nav-ul">
                 <li> <a class="base-li-a" href="logout.php">Ausloggen</a> </li>
                 <li> <a class="base-li-a" href="index.php">Start</a> </li>
-                <li> <a class="main-li-a" href="">Produkte</a> </li>
+                <li> <a class="main-li-a" href="produkt_liste.php">Produkte</a> </li>
                 <li> <a class="main-li-a" href="produkt_neu.php">Produkt Neu</a> </li>
                 <li> <a class="main-li-a" href="">Kategorien</a> </li>
                 <li> <a class="main-li-a" href="">Restaurants</a> </li>
