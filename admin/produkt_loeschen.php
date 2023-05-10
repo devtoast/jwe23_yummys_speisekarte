@@ -4,7 +4,7 @@ use WIFI\JUMMY\Speisen\DbRow\Produkt;
 
 include "setup.php";
 ist_eingeloggt();
-
+// Ist der Benutzer überhaupt eingeloggt bzw. muss eingeloggt sein
 include "kopf.php";
 ?>
 
@@ -21,6 +21,8 @@ $produkt = new Produkt($_GET["id"]);
 //$_GET aus URL
 
 if (!empty($_GET["delete"])) {
+    // Wird in Z41 definiert!
+    // Bestätigungs-Link Z41 wurde geklickt -> wird aus DB gelöscht
     $produkt->entfernen();
     echo "<p>Das Produkt wurde erfolgreich gelöscht!</p>";
 } else {
