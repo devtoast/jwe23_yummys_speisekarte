@@ -6,7 +6,7 @@ include "kopf.php";
 
 <div id="admin-toptext">
     <h2 id="admin-headline">Menü Administration</h2>
-    <aside id="admin-subline">Bitte wählen Sie eine Rubrik</aside>
+    <aside id="admin-subline">Willkommen, bitte wählen Sie eine Rubrik</aside>
 </div>
 
 

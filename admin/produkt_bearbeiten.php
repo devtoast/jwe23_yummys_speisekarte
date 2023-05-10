@@ -50,7 +50,7 @@ include "kopf.php";
 
 <div id="admin-toptext">
     <h2 id="admin-headline">Produkt bearbeiten</h2>
-    <aside id="admin-subline">Bitte Formular anpassen</aside>
+    <aside id="admin-subline">Bitte Formulardaten anpassen</aside>
 </div>
 
 <?php
