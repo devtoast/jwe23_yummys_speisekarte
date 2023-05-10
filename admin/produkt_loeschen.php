@@ -40,7 +40,11 @@ if (!empty($_GET["delete"])) {
     <a href='produkt_liste.php'> Nein, abbrechen</a>
     <a href='produkt_loeschen.php?id=" . $produkt->id . "&amp;delete=1'>Ja, löschen</a>
     </p>";
-    // delete = WICHTIG für oben Z23
+    // Entweder zurück zur "produkt_liste"
+
+    // oder $_GET["delete"] – Funktion "entfernen()" wird aktiv (DbRowAbstract(Klasse Produkt))
+    // URL: ….php?id=7&delete=1
+    // delete aus Z41 = WICHTIG für oben Z23
 }
 
 
