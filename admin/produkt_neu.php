@@ -63,13 +63,6 @@ if ($erfolg) {
     if (!empty($validieren)) {
         echo $validieren->fehlerHtml();
     }
-    /*
-    if (!empty($_GET["id"])) {
-        // bearbeiten-modus - Produktdaten ermitteln
-        $produkt = new Produkt($_GET["id"]);
-    }
-*/
-
 
 ?>
 
