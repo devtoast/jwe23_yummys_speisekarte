@@ -56,8 +56,6 @@ include "kopf.php";
 <?php
 if ($erfolg) {
     echo "<p><strong>Produkt wurde angelegt.</strong><br>";
-    // <a href='produkt_liste.php'>Zurück zur Liste</a></p>
-
 } else {
 
     if (!empty($validieren)) {
