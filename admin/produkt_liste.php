@@ -33,6 +33,7 @@ echo "<th>Menge</th>";
 echo "<th>Einheit</th>";
 echo "<th>Anlagedatum</th>";
 echo "<th>Status</th>";
+echo "<th>Optionen</th>";
 echo "</thead>";
 
 echo "<tbody>";
@@ -51,6 +52,8 @@ foreach ($alleProdukteVs as $vorspeise) {
     echo "<td>" . $vorspeise->einheit . "</td>";
     echo "<td>" . $vorspeise->anlagedatum . "</td>";
     echo "<td>" . $vorspeise->aktiv . "</td>";
+    echo "<td>" . "<a href='produkt_bearbeiten.php?id={$vorspeise->id}'>Bearbeiten</a>" . "<br>"
+        . "<a href='produkt_loeschen.php?id={$vorspeise->id}'>Löschen</a>" . "</td>";
 
     echo "</tr>";
 }
@@ -76,6 +79,7 @@ echo "<th>Menge</th>";
 echo "<th>Einheit</th>";
 echo "<th>Anlagedatum</th>";
 echo "<th>Status</th>";
+echo "<th>Optionen</th>";
 echo "</thead>";
 
 echo "<tbody>";
@@ -94,6 +98,8 @@ foreach ($alleProdukteHs as $hauptspeise) {
     echo "<td>" . $hauptspeise->einheit . "</td>";
     echo "<td>" . $hauptspeise->anlagedatum . "</td>";
     echo "<td>" . $hauptspeise->aktiv . "</td>";
+    echo "<td>" . "<a href='produkt_bearbeiten.php?id={$hauptspeise->id}'>Bearbeiten</a>" . "<br>"
+        . "<a href='produkt_loeschen.php?id={$hauptspeise->id}'>Löschen</a>" . "</td>";
 
     echo "</tr>";
 }
@@ -119,6 +125,7 @@ echo "<th>Menge</th>";
 echo "<th>Einheit</th>";
 echo "<th>Anlagedatum</th>";
 echo "<th>Status</th>";
+echo "<th>Optionen</th>";
 echo "</thead>";
 
 echo "<tbody>";
@@ -137,6 +144,8 @@ foreach ($alleProdukteNs as $nachtspeise) {
     echo "<td>" . $nachtspeise->einheit . "</td>";
     echo "<td>" . $nachtspeise->anlagedatum . "</td>";
     echo "<td>" . $nachtspeise->aktiv . "</td>";
+    echo "<td>" . "<a href='produkt_bearbeiten.php?id={$nachtspeise->id}'>Bearbeiten</a>" . "<br>"
+        . "<a href='produkt_loeschen.php?id={$nachtspeise->id}'>Löschen</a>" . "</td>";
 
     echo "</tr>";
 }
@@ -162,6 +171,7 @@ echo "<th>Menge</th>";
 echo "<th>Einheit</th>";
 echo "<th>Anlagedatum</th>";
 echo "<th>Status</th>";
+echo "<th>Optionen</th>";
 echo "</thead>";
 
 echo "<tbody>";
@@ -180,6 +190,9 @@ foreach ($alleProdukteGe as $getraenk) {
     echo "<td>" . $getraenk->einheit . "</td>";
     echo "<td>" . $getraenk->anlagedatum . "</td>";
     echo "<td>" . $getraenk->aktiv . "</td>";
+    echo "<td>" . "<a href='produkt_bearbeiten.php?id={$getraenk->id}'>Bearbeiten</a>" . "<br>"
+        . "<a href='produkt_loeschen.php?id={$getraenk->id}'>Löschen</a>" . "</td>";
+
 
     echo "</tr>";
 }
