@@ -31,7 +31,7 @@ spl_autoload_register(
         }
 
         // Klasse ohne Prefix
-        // der hintere Teil d. Pfades (Packerl\PackerlGross) – (ab Pos. 11)
+        // der hintere Teil d. Pfades (Klassen\Speisen…) – (ab Pos. 11)
         // 3. Argument - die übriggebliebenen Zeichen braucht man nicht angeben() 
         $relativ = substr($klasse, $laenge);
 
