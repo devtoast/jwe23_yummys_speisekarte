@@ -58,4 +58,3 @@ function ist_eingeloggt() //Eigenfunktion!!!!!!!!!
         exit; // wird gemacht, um weitere "geheime" Inhalte darunter nicht zum Browser schicken
     }
 }
-// Benutzer nicht eingeloggt umleiten zu Login
