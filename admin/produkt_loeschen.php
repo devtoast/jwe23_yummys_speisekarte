@@ -47,12 +47,4 @@ if (!empty($_GET["delete"])) {
     // delete aus Z41 = WICHTIG für oben Z23
 }
 
-
-
-
-
-
-
-
-
 include "fuss.php";
