@@ -37,6 +37,7 @@ echo "<th>Optionen</th>";
 echo "</thead>";
 
 echo "<tbody>";
+
 $produkteVs = new Produkte();
 $alleProdukteVs = $produkteVs->alleProdukteVs();
 

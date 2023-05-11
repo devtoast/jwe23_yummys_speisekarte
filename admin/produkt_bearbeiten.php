@@ -138,11 +138,12 @@ if ($erfolg) {
                 <?php if (!empty($_POST["waehrung"])) {
                     echo " selected";
                 } else if (!empty($produkt)) {
+                    //  echo "<option value='{$produkt->waherung}'>{$produkt->waherung}</option>";
                     echo " selected";
-                    echo htmlspecialchars($produkt->waehrung);
                 }
-                // echo "<option value='{$produkt["waehrung"]}'></option>";
-                //echo htmlspecialchars($produkt->waehrung); {$produkt->waehrung}
+                // && $produkt->waehrung == $produkt->waehrung
+                // echo "<option value='{$produkt->waherung}'>{$produkt->waherung}</option>";
+                // echo htmlspecialchars($produkt->waehrung); {$produkt->waehrung}
                 ?>
             </select>
         </div>
