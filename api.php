@@ -1,5 +1,12 @@
 <?php
 
+// http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/list
+// http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/1/produkte
+// http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/2/produkte
+// http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/3/produkte
+// http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/4/produkte
+// http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/produkte/list
+
 require "admin/funktionen.php";
 /**
  * Die include- und require-Anweisungen sind identisch, außer bei einem Fehler:
@@ -52,12 +59,12 @@ $request_uri_ohne_get = explode("?", $_SERVER["REQUEST_URI"])[0];
 $teile = explode("/api/", $request_uri_ohne_get, 2);
 $parameter = explode("/", $teile[1]);
 
-$api_version = ltrim(array_shift($parameter), "vV");
+$api_version = ltrim(array_shift($parameter), "vV"); // entfernt vV
 if (empty($api_version)) {
     fehler("Bitte API-Version angeben.");
 }
 // array_shift entfernt den ersten Wert aus einem Array und gibt ihn zurück
-// aus diesem lesen wir hier gleich unsere Version raus.
+// aus diesem lesen wir hier gleich unsere Version raus. (1)
 
 
 // Leere Einträge aus Parameter-Array entfernen
@@ -81,61 +88,113 @@ if (empty($parameter)) {
     fehler("Nach der Version wurde keine Methode übergeben. Prüfen Sie Ihren Aufruf.");
 }
 
+//////////////////////////////
 
 // Ab hier ist in $parameter[0] immer die Hauptmethode drin,
 // in $parameter[1], etc. die genauere Spezifizierung was angefragt wurde
 
 if ($parameter[0] == "kategorien") {
-    // Liste aller Kategorien (Vorspeisen, Hauptspeisen… (ohne Produkte))
-    $ausgabe = array(
-        "status" => 1,
-        "result" => array()
-    );
+    if (!empty($parameter[1])) {
+        if ($parameter[1] == "list") {
+            $ausgabe = array(
+                "status" => 1,
+                "result" => array()
+            );
+            // Liste aller Kategorien (Vorspeisen, Hauptspeisen… (ohne Produkte))
+            $result = query("SELECT * FROM kategorien ORDER BY id ASC");
+            // query – aus funktionen.php
+            while ($row = mysqli_fetch_assoc($result)) {
+                $ausgabe["result"][] = $row;
+            }
 
+            echo json_encode($ausgabe);
+            // json_encode — Liefert die JSON-Darstellung eines Wertes
+            exit;
+        } else {
+            if (!empty($parameter[2]) && ($parameter[2] == "produkte")) {
+                //echo "Geht";
+                $ausgabe = array(
+                    "status" => 1,
+                    "result" => array()
+                );
+                $sql_kategorie_id = escape($parameter[1]);
+                // $result = query("SELECT * FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}'");
+                $result = query("SELECT produkte.id, produkte.titel, produkte.beschreibung, produkte.kategorie_id FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}'");
+                $produkt = mysqli_fetch_assoc($result);
 
-    $result = query("SELECT * FROM kategorien ORDER BY id ASC");
-    // query – aus funktionen.php
-    while ($row = mysqli_fetch_assoc($result)) {
-        $ausgabe["result"][] = $row;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $ausgabe["result"][] = $row;
+                }
+                /*
+                echo "<pre>";
+                print_r($ausgabe);
+                echo "</pre>";
+*/
+                echo json_encode($ausgabe);
+                exit;
+            } else {
+                ///////// ID wurde übergeben - Detail einer Kategorie ausgeben /////////
+                $ausgabe = array(
+                    "status" => 1
+                );
+                // Kategoriedaten ermitteln
+                $sql_kategorie_id = escape($parameter[1]);
+                $result = query("SELECT * FROM kategorien WHERE id = '{$sql_kategorie_id}'");
+                $produkt = mysqli_fetch_assoc($result);
+
+                if (!$produkt) {
+                    fehler("Mit der id '{$parameter[1]}' wurde keine Kategorie gefunden");
+                }
+                $ausgabe["produkt"] = $produkt;
+                //
+
+                //
+                echo json_encode($ausgabe);
+                exit;
+            }
+        }
     }
-    echo json_encode($ausgabe);
-    // json_encode — Liefert die JSON-Darstellung eines Wertes
-    exit;
+    //////////////////////////////////////
 } else if ($parameter[0] == "produkte") {
     if (!empty($parameter[1])) {
-        // ID wurde übergeben - Detail eines Produktes ausgeben
-        $ausgabe = array(
-            "status" => 1
-        );
-        // Produktdaten ermitteln
-        $sql_produkt_id = escape($parameter[1]);
-        $result = query("SELECT * FROM produkte WHERE id = '{$sql_produkt_id}'");
-        $produkt = mysqli_fetch_assoc($result);
-        if (!$produkt) {
-            fehler("Mit der id '{$parameter[1]}' wurde kein Produkt gefunden");
+        if ($parameter[1] == "list") {
+            // Liste aller Produkte
+            $ausgabe = array(
+                "status" => 1,
+                "result" => array()
+            );
+            $where = "";
+            if (!empty($_GET["suche"])) {
+                $sql_suche = escape($_GET["suche"]);
+                $where = "WHERE produkte.titel LIKE '%{$sql_suche}%'";
+            }
+            $result = query("SELECT produkte.id, produkte.titel, produkte.beschreibung FROM produkte ORDER BY produkte.id ASC");
+            while ($row = mysqli_fetch_assoc($result)) {
+                $ausgabe["result"][] = $row;
+            }
+            echo json_encode($ausgabe);
+            exit;
         }
-        $ausgabe["produkt"] = $produkt;
-        //
-        //
-        echo json_encode($ausgabe);
-        exit;
-    } else {
-        // Liste aller Produkte
-        $ausgabe = array(
-            "status" => 1,
-            "result" => array()
-        );
-        $where = "";
-        if (!empty($_GET["suche"])) {
-            $sql_suche = escape($_GET["suche"]);
-            $where = "WHERE produkte.titel LIKE '%{$sql_suche}%'";
+        //////////////////////////////////////
+        else {
+            // ID wurde übergeben - Detail eines Produktes ausgeben
+            $ausgabe = array(
+                "status" => 1
+            );
+            // Produktdaten ermitteln
+            $sql_produkt_id = escape($parameter[1]);
+            $result = query("SELECT * FROM produkte WHERE id = '{$sql_produkt_id}'");
+            $produkt = mysqli_fetch_assoc($result);
+
+            if (!$produkt) {
+                fehler("Mit der id '{$parameter[1]}' wurde kein Produkt gefunden");
+            }
+            $ausgabe["produkt"] = $produkt;
+            //
+            //
+            echo json_encode($ausgabe);
+            exit;
         }
-        $result = query("SELECT produkte.id, produkte.titel, produkte.beschreibung FROM produkte ORDER BY produkte.id ASC");
-        while ($row = mysqli_fetch_assoc($result)) {
-            $ausgabe["result"][] = $row;
-        }
-        echo json_encode($ausgabe);
-        exit;
     }
 } else {
     fehler("Die Methode '{$parameter[0]}' existiert nicht.");

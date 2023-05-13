@@ -41,7 +41,7 @@ function get_Data(data) {
 
 
 // jQuery
-
+/*
 let endpoint = 'http://localhost/php2/api/v1/rezepte';
 
 $(document).ready(function () {
@@ -71,14 +71,15 @@ function get_Data(data) {
             titel.text(rezept.titel);
             benutzername.text(rezept.benutzername);
     */
-};
-
+/*
+}
+*/
 ////////////////////////////
 
 // Vanilla
 
 function getApiData(event) {
-    fetch("http://localhost/php2/api/v1/rezepte")
+    fetch("http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/produkte")
         // fetch – abrufen
         .then(function (response) {
             if (response.ok) {
@@ -96,7 +97,7 @@ function getApiData(event) {
             document.querySelector("#benutzername").textContent = `${speise.benutzername}`;
         })
         .catch(function (error) {
-            document.querySelector("#film-title").textContent = error.message;
+            document.querySelector("#speisen-titel").textContent = error.message;
         });
 
     /*

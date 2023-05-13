@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteBase /jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/
+
+RewriteRule ^\/?api\/? api.php
