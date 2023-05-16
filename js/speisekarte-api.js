@@ -1,49 +1,8 @@
-/*
-let ta_endpoint = 'https://randomuser.me/api/';
-// Adresse der externen Datenabfrage – API (application programming interface)
+///////// jQuery /////////
 
-$('.btn-person').click(function () {
-    // Bei klick auf den Button wird die Abfrage ausgeführt
+let endpoint = 'http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/1/produkte';
 
-    $.ajax({
-
-        url: ta_endpoint, // Adresse des API
-        dataType: 'json', // Datentyp
-        type: 'GET', // Daten grapschen
-
-        success: function (results) {
-            console.log(results);
-            // Bei Erfolg Daten in der Konsole anzeigen (da kann man sich schön alle verfügbaren Daten (results in Arrays []) ansehen)
-        }
-
-    })
-
-        .done(get_Data);
-    // Google sei Dank ;)
-
-});
-
-
-let ta_foto = $('.person-foto');
-let ta_name = $('.individual-name');
-
-function get_Data(data) {
-
-    let ta_person = data.results[0];
-
-    ta_foto.attr('src', ta_person.picture.large),
-        // Die selektierten (gewünschten) Daten aus dem gelieferten Array [] (aus results) im HTML ausgeben (in diesem Fall Bild Version-"large")
-        ta_name.text(ta_person.name.first + ' ' + ta_person.name.last); // -""- (Vor- und Nachname)
-};
-*/
-
-////////////////////////////
-
-
-// jQuery
-/*
-let endpoint = 'http://localhost/php2/api/v1/rezepte';
-
+// Erstmalige Initialisierung //
 $(document).ready(function () {
     $.ajax({
         url: endpoint,
@@ -51,170 +10,161 @@ $(document).ready(function () {
         type: 'GET',
 
         success: function (results) {
-            console.log(results);
+            //console.log(results);
         }
     })
-        .done(get_Data);
+        .done(dataOutput);
 });
 
-let id = $('#id');
-let titel = $('#titel');
-let benutzername = $('#benutzername');
+// Danach Abfrage alle 10 Sekunden (Funktion "getData") //
+$(document).ready(function () {
+    setInterval(getData, 10000);
+});
+
+function getData() {
+    $.ajax({
+        url: endpoint,
+        dataType: 'json',
+        type: 'GET',
+
+        success: function (results) {
+            // console.log(results);
+        }
+    })
+        .done(dataOutput);
+};
+
+// Danach Output auf Website //
+function dataOutput(data) {
+
+    // let produkt = data.result[0]; // Bezeichnung "result" aus API JSON OBJECT!!!!! (Pos. 0)
+    // let produkt = data.result; // Bezeichnung "result" aus API JSON OBJECT!!!!! (Alle Pos.)
+    let produkte = data.result;
+    // console.log(produkte);
+
+    const ProduktContainer = document.querySelector('.produkt-container');
+    ProduktContainer.innerHTML = '';
+
+    for (let produkt of produkte) {
+
+        const produktItem = document.createElement('div');
+        produktItem.className = 'produkt-item';
 
 
+        const titel = produkt.titel;
+        const beschreibung = produkt.beschreibung;
+        const waehrung = produkt.waehrung;
+        const preis = produkt.preis;
 
-function get_Data(data) {
-    /*
-            let rezept = data.results[0];
-    
-            id.text(rezept.id);
-            titel.text(rezept.titel);
-            benutzername.text(rezept.benutzername);
-    */
+
+        const descriptionTitel = document.createElement('span');
+        descriptionTitel.setAttribute('id', 'description-titel');
+        descriptionTitel.textContent = titel;
+
+        const descriptionBeschreibung = document.createElement('span');
+        descriptionBeschreibung.setAttribute('id', 'description-beschreibung');
+        descriptionBeschreibung.textContent = beschreibung;
+
+        const descriptionWaehrung = document.createElement('span');
+        descriptionWaehrung.setAttribute('id', 'description-waehrung');
+        descriptionWaehrung.textContent = waehrung;
+
+        const descriptionPreis = document.createElement('span');
+        descriptionPreis.setAttribute('id', 'description-preis');
+        descriptionPreis.textContent = preis;
+
+
+        // const breakTag = document.createElement('br');
+
+
+        ProduktContainer.appendChild(produktItem);
+        produktItem.appendChild(descriptionTitel);
+        produktItem.appendChild(descriptionBeschreibung);
+        produktItem.appendChild(descriptionWaehrung);
+        produktItem.appendChild(descriptionPreis);
+        // produktItem.appendChild(breakTag);
+
+    }
+};
+
+
 /*
-}
-*/
-////////////////////////////
+///////// Vanilla /////////
 
-// Vanilla
-
-function getApiData(event) {
-    fetch("http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/produkte")
+function getData(event) {
+    fetch("http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/1/produkte")
         // fetch – abrufen
         .then(function (response) {
             if (response.ok) {
                 // Response ok property – ok – Status 200 = "ok"
                 console.log(response);
                 return response.json();
+
                 // gibt die Daten als "json" aus – json (Java Script Object Notation) (Textformat zum Speichern und Transportieren von Daten)
                 // definiert Objekte mit Eigenschaften (Z.B.: Objekt Hauptspeise, Eigenschften: Titel, Bezeichnung; Preis…)
+            } else if (response.status === 404) {
+                throw new Error("Produkt nicht gefunden");
             } else {
                 throw new Error("API ERROR")
             }
+
         })
-        .then(function (speise) {
-            document.querySelector("#speisen-titel").textContent = `${speise.title}`;
-            document.querySelector("#benutzername").textContent = `${speise.benutzername}`;
-        })
-        .catch(function (error) {
-            document.querySelector("#speisen-titel").textContent = error.message;
-        });
 
-    /*
-    .then(function (content) {
-        const ul = document.querySelector("#speisen-liste");
-     
-        for (let item of content) {
+        .then(function (data) {
 
-            const li = document.createElement("li")
-            
-            const id = item.id;
-            const titel = item.titel;
-            const benutzername = item.benutzername;
-     
-            li.textContent = titel;
-     
-            ul.appendChild(li);
-        }
-    });
-    */
+            // let produkt = data.result[0]; // Bezeichnung "result" aus API JSON OBJECT!!!!! (Pos. 0)
+            // let produkt = data.result; // Bezeichnung "result" aus API JSON OBJECT!!!!! (Alle Pos.)
+            let produkte = data.result;
+            //console.log(produkte);
 
-}
-window.addEventListener("load", getApiData);
+            const ProduktContainer = document.querySelector('.produkt-container');
+            ProduktContainer.innerHTML = '';
+
+            for (let produkt of produkte) {
+
+                const produktItem = document.createElement('div');
+                produktItem.className = 'produkt-item';
 
 
 
-/*
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+                const titel = produkt.titel;
+                const beschreibung = produkt.beschreibung;
+                const waehrung = produkt.waehrung;
+                const preis = produkt.preis;
 
-if (id) {
-    fetch(`http://localhost/php2/api/v1/rezepte/${id}`)
-        .then(function (response) {
-            if (response.ok) {
-                console.log(response);
-                return response.json();
+
+
+                const descriptionTitel = document.createElement('span');
+                descriptionTitel.setAttribute('id', 'description-titel');
+                descriptionTitel.textContent = titel;
+
+                const descriptionBeschreibung = document.createElement('span');
+                descriptionBeschreibung.setAttribute('id', 'description-beschreibung');
+                descriptionBeschreibung.textContent = beschreibung;
+
+                const descriptionWaehrung = document.createElement('span');
+                descriptionWaehrung.setAttribute('id', 'description-waehrung');
+                descriptionWaehrung.textContent = waehrung;
+
+                const descriptionPreis = document.createElement('span');
+                descriptionPreis.setAttribute('id', 'description-preis');
+                descriptionPreis.textContent = preis;
+
+
+
+                ProduktContainer.appendChild(produktItem);
+                produktItem.appendChild(descriptionTitel);
+                produktItem.appendChild(descriptionBeschreibung);
+                produktItem.appendChild(descriptionWaehrung);
+                produktItem.appendChild(descriptionPreis);
+
             }
-            else if (response.status === 404) {
-                throw new Error("Rezept nicht gefunden");
-            } else {
-                throw new Error(`API Fehler bei id=${id}`);
-            }
         })
-        .then(function (speise) {
-            document.querySelector("#speisen-titel").textContent = speise.title;
-            document.querySelector("#benutzername").textContent = speise.benutzername;
-        })
-        .catch(function (error) {
-            document.querySelector("#speisen-titel").textContent = error.message;
+
+        .then(function () {
+            window.setInterval(getData, 10000);
         });
 }
+
+window.addEventListener("load", getData);
 */
-
-
-/*/////////
-function createNode(element) {
-    return document.createElement(element);
-}
-
-function append(parent, el) {
-    return parent.appendChild(el);
-}
-
-const ul = document.getElementById('authors');
-const url = 'https://randomuser.me/api/?results=10';
-
-fetch(url)
-    .then((resp) => resp.json())
-    .then(function (data) {
-        let authors = data.results;
-        console.log(authors);
-        return authors.map(function (author) {
-            let li = createNode('li');
-            let img = createNode('img');
-            let span = createNode('span');
-            img.src = author.picture.medium;
-            span.innerHTML = `${author.name.first} ${author.name.last}`;
-            append(li, img);
-            append(li, span);
-            append(ul, li);
-        })
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-
- */ /////////
-
-/*
-function createElements(element) {
-    return document.createElement(element);
-}
-
-function append(parent, el) {
-    return parent.appendChild(el);
-}
-
-const ul = document.getElementById('vorspeisen');
-const url = 'http://localhost/php2/api/v1/rezepte';
-
-fetch(url)
-    .then((resp) => resp.json())
-    .then(function (data) {
-        let vorspeisen = data.results;
-        // console.log(vorspeisen);
-        return vorspeisen.map(function (vorspeise) {
-            let li = createElements('li');
-            // let img = createElements('img');
-            let span = createElements('span');
-            // img.src = vorspeise.picture.medium;
-            span.innerHTML = `${vorspeise.titel} ${vorspeise.benutzername}`;
-            // append(li, img);
-            append(li, span);
-            append(ul, li);
-        })
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-    */
