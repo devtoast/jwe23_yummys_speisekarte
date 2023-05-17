@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 12. Mai 2023 um 16:50
+-- Erstellungszeit: 17. Mai 2023 um 18:05
 -- Server-Version: 10.4.27-MariaDB
 -- PHP-Version: 8.2.0
 
@@ -45,7 +45,7 @@ CREATE TABLE `benutzer` (
 --
 
 INSERT INTO `benutzer` (`id`, `vorname`, `nachname`, `benutzername`, `passwort`, `email`, `login_last`, `login_count`, `boss`, `mini_boss`) VALUES
-(1, 'Thomas', 'Astleithner', 'toast', '$2y$10$1/9.VmD6UtfXAjSObNKXi.QqQYiQhtNOeN3Dsoal6OKxtGX/LZ9Q6', 'toast@sol.at', '2023-05-11 14:28:36', 49, 0, 0),
+(1, 'Thomas', 'Astleithner', 'toast', '$2y$10$1/9.VmD6UtfXAjSObNKXi.QqQYiQhtNOeN3Dsoal6OKxtGX/LZ9Q6', 'toast@sol.at', '2023-05-17 16:57:35', 55, 0, 0),
 (2, 'Manuel', 'Obermoser', 'maniobi', '$2y$10$C4PpGYHtEzfRibxJg5aWzOiNThIcbItrY2onSSWd/XSDO.gvRKmc2', NULL, '2023-04-11 16:17:29', 1, 0, 0),
 (3, 'Christian', 'Rainer', 'rainchr', '$2y$10$YFzd73Q2BQXnfELdHfSVZOh9r1cuZuKj6q2r9qveCA0HxSiA1OEMq', NULL, '2023-04-11 16:11:06', 2, 0, 0),
 (4, 'Markus', 'Hauser', 'markhaus', '$2y$10$3Wo.16v2PZQT3cqSSEe6l.9qOmsmbEqf67G3Rwr4qXcdKyAdpdpiW', NULL, '2023-04-11 16:05:43', 1, 0, 0);
@@ -101,16 +101,16 @@ INSERT INTO `produkte` (`id`, `titel`, `beschreibung`, `waehrung`, `preis`, `men
 (2, 'Eiernudeln', 'mit Blattsalat', '€', 8.5, 200, 'Gramm', '2023-05-05', 0, 2, NULL, NULL),
 (3, 'Kaisersmarren', 'mit Zwetschkenröster', '€', 10.2, 300, 'Gramm', '2023-05-12', 0, 3, NULL, NULL),
 (4, 'Bier', 'Pils', '£', 5.5, 0.5, 'Liter', '2023-05-05', 0, 4, NULL, NULL),
-(7, 'Gebeizter Saibling', 'Saibling in hauseigener Marinade mit Gemüse der Saison mit würziger Sauce', '$', 15, 200, 'Gramm', '2023-05-10', 0, 1, NULL, NULL),
-(10, 'dfg', 'sdf', '€', 0.02, 0.02, 'df', '2023-05-05', 0, 1, NULL, NULL),
-(12, 'Salat', 'Tomaten', '£', 10.5, 100, 'Gramm', '2023-05-06', 0, 1, NULL, NULL),
+(7, 'Gebeizter Saibling', 'in hauseigener Marinade mit Gemüse der Saison mit würziger Sauce', '€', 15, 200, 'Gramm', '2023-05-10', 1, 1, NULL, NULL),
+(12, 'Gemischter Salat', 'mit Gemüse der Saison und Putenstreifen', '€', 10.5, 100, 'Gramm', '2023-05-06', 1, 1, NULL, NULL),
 (13, 'Schnaps', 'Marille', '£', 5, 2, 'cl', '2023-05-06', 0, 4, NULL, NULL),
 (14, 'Saft', 'Apfelsaft 100% Fruchtanteil', '€', 5.3, 0.5, 'Liter', '2023-05-04', 0, 4, NULL, NULL),
-(15, 'Suppe', 'Nudelsuppe', '€', 10, 100, 'Gramm', '2023-05-04', 0, 1, NULL, NULL),
-(16, 'xfg', 'xfgh', '€', 0.02, 0.02, 'g', '2023-05-06', 1, 1, NULL, NULL),
+(15, 'Nudelsuppe', 'Rindsuppe mit hausgemachten Nudeln', '€', 10, 100, 'Gramm', '2023-05-04', 1, 1, NULL, NULL),
 (18, 'Sachertorte', 'mit Schokoüberzug und Marmeladenfüllung', '€', 20, 100, 'Gramm', '2023-05-09', 1, 3, NULL, NULL),
 (20, 'Fruchtsalat', 'mit Äpfel und Birnen', '€', 5, 20.5, 'Gramm', '2023-05-09', 1, 3, NULL, NULL),
-(21, 'Zwiebelrostbraten', 'vom Rind\r\nmit Semmelknödel\r\nin Zwiebelsauce\r\nmit Blattsalat', '€', 25, 250, 'Gramm', '2023-05-10', 1, 2, NULL, NULL);
+(21, 'Zwiebelrostbraten', 'vom Rind\r\nmit Semmelknödel\r\nin Zwiebelsauce\r\nmit Blattsalat', '€', 25, 250, 'Gramm', '2023-05-10', 1, 2, NULL, NULL),
+(23, 'Spargelcremesuppe', 'mit frischem Spargel ', '€', 12, 250, 'ml', '2023-05-16', 1, 1, NULL, NULL),
+(28, 'Gebeizter Saibling', 'Bio-Saibling in hauseigener Marinade  mit Zwiebel', '€', 12.5, 250, 'Gramm', '2023-05-17', 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -183,7 +183,7 @@ ALTER TABLE `kategorien`
 -- AUTO_INCREMENT für Tabelle `produkte`
 --
 ALTER TABLE `produkte`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT für Tabelle `restaurants`
