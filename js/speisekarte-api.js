@@ -15,7 +15,7 @@ $(document).ready(function () {
     })
         .done(dataOutput);
 });
-
+/*
 // Danach Abfrage alle 10 Sekunden (Funktion "getData") //
 $(document).ready(function () {
     setInterval(getData, 10000);
@@ -33,7 +33,7 @@ function getData() {
     })
         .done(dataOutput);
 };
-
+*/
 // Danach Output auf Website //
 function dataOutput(data) {
 
@@ -65,13 +65,14 @@ function dataOutput(data) {
         descriptionBeschreibung.setAttribute('id', 'description-beschreibung');
         descriptionBeschreibung.textContent = beschreibung;
 
+        /*
         const descriptionWaehrung = document.createElement('span');
         descriptionWaehrung.setAttribute('id', 'description-waehrung');
         descriptionWaehrung.textContent = waehrung;
-
+*/
         const descriptionPreis = document.createElement('span');
         descriptionPreis.setAttribute('id', 'description-preis');
-        descriptionPreis.textContent = preis;
+        descriptionPreis.textContent = waehrung + ' ' + preis;
 
 
         // const breakTag = document.createElement('br');
@@ -80,7 +81,7 @@ function dataOutput(data) {
         ProduktContainer.appendChild(produktItem);
         produktItem.appendChild(descriptionTitel);
         produktItem.appendChild(descriptionBeschreibung);
-        produktItem.appendChild(descriptionWaehrung);
+        // produktItem.appendChild(descriptionWaehrung);
         produktItem.appendChild(descriptionPreis);
         // produktItem.appendChild(breakTag);
 

@@ -1,0 +1,434 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --grey-extra-light: #f5f5f5;
+    --grey-light: #ccc;
+    --grey-medium: #7f7f7f;
+    --grey-dark: #666;
+    --grey-slate: #708090;
+    --grey-extra-dark: #333;
+    --soft-blue-light: #a8dadc;
+    --soft-blue: #457b9d;
+    --soft-blue-dark: #334a6b;
+    --soft-blue-extra-dark: #1d3557;
+    --soft-green-extra-light: #cbddab;
+    --soft-green-light: #a3b18a;
+    --soft-green: #588157;
+    --soft-green-dark: #3a5a40;
+    --soft-green-extra-dark: #344e41;
+    --soft-red: #d62828;
+    --soft-red-dark: #c1121f;
+    --soft-red-extra-dark: #780000;
+    --soft-orange-extra-light: #fee8bd;
+    --soft-orange-light: #fcbf49;
+    --soft-orange: #F77F00;
+    --soft-orange-dark: #944d00;
+    --soft-yellow-light: #ffdd00;
+    --soft-yellow: #ffc300;
+    --soft-beige: #EAE2B7;
+}
+
+/* Open Sans */
+@font-face {
+    font-family: "OpenSans-Light";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Light.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-LightItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-LightItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-Regular";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Regular.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-RegularItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Italic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-Medium";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Medium.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-MediumItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-MediumItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-SemiBold";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-SemiBold.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-SemiBoldItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-SemiBoldItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-Bold";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-Bold.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-BoldItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-BoldItalic.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-ExtraBold";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-ExtraBold.ttf)
+}
+
+@font-face {
+    font-family: "OpenSans-ExtraBoldItalic";
+    src: url(../fonts/Open_Sans/OpenSans/OpenSans-ExtraBoldItalic.ttf)
+}
+
+/* Barrio */
+@font-face {
+    font-family: "Barrio-Regular";
+    src: url(../fonts/Barrio/Barrio-Regular.ttf);
+
+}
+
+/* Lobster */
+@font-face {
+    font-family: "Lobster-Regular";
+    src: url(../fonts/Lobster/Lobster-Regular.ttf)
+}
+
+/* HennyPenny */
+@font-face {
+    font-family: "HennyPenny-Regular";
+    src: url(../fonts/Henny_Penny/HennyPenny-Regular.ttf)
+}
+
+/* Fascinate */
+@font-face {
+    font-family: "Fascinate-Regular";
+    src: url(../fonts/Fascinate/Fascinate-Regular.ttf)
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#return-btn-container {
+    display: flex;
+    justify-content: right;
+}
+
+.return-btn {
+    width: 14vw;
+    height: 14vw;
+    border: 2px solid var(--soft-orange);
+    border-radius: 50%;
+    background-image: url(../img/closeIconX_or.svg);
+    background-color: var(--white);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 50% 50%;
+    cursor: pointer;
+}
+
+.return-btn:hover {
+    width: 14vw;
+    height: 14vw;
+    border: 0;
+    border-radius: 50%;
+    background-image: url(../img/closeIconX_w.svg);
+    background-color: var(--soft-orange);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 50% 50%;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+}
+
+#line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--soft-orange);
+}
+
+.prod-main-wrapper {
+    display: block;
+    width: 90%;
+    margin: 0 5%;
+    min-height: calc(100vh - 36vw);
+    background-color: var(--white);
+}
+
+.prod-inner-wrapper {
+    padding: 10vw 5vw;
+}
+
+#headline-vs {
+    margin: 0;
+    padding: 0;
+    font-family: "Fascinate-Regular", Arial, Helvetica, sans-serif;
+    color: var(--soft-green-dark);
+    font-size: 10vw;
+    line-height: 10vw;
+    text-align: center;
+    margin-bottom: 10vw;
+}
+
+
+/* PRODUCTS */
+.produkt-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 5vw;
+}
+
+#description-titel {
+    font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
+    font-size: 5vw;
+    color: var(--grey-extra-dark);
+    margin-bottom: .5vw;
+}
+
+#description-beschreibung {
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    font-size: 4vw;
+    color: var(--grey-extra-dark);
+    margin-bottom: .5vw;
+}
+
+#description-preis {
+    font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
+    font-size: 5vw;
+    color: var(--grey-extra-dark);
+}
+
+
+
+/* FOOTER */
+#prod-footer-end {
+    height: 10vw;
+    width: 100%;
+    background-color: var(--grey-extra-dark);
+}
+
+#prod-footer-end-text {
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    color: var(--white);
+    text-align: center;
+    font-size: 3vw;
+    line-height: 3vw;
+    padding: 3.5vw 0;
+}
+
+#prod-footer-end-text a {
+    font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
+    color: var(--white);
+    font-size: 3vw;
+    line-height: 3vw;
+    text-decoration: none;
+}
+
+#prod-footer-end-text a:hover {
+    color: var(--soft-yellow);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+@media (min-width: 600px) {
+
+    .return-btn {
+        width: 5vw;
+        height: 5vw;
+        border: 2px solid var(--soft-orange);
+        border-radius: 50%;
+        background-image: url(../img/closeIconX_or.svg);
+        background-color: var(--white);
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: 50% 50%;
+        cursor: pointer;
+    }
+
+    .return-btn:hover {
+        width: 5vw;
+        height: 5vw;
+        border: 0;
+        border-radius: 50%;
+        background-image: url(../img/closeIconX_w.svg);
+        background-color: var(--soft-orange);
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: 50% 50%;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: all 0.2s ease 0s;
+        cursor: pointer;
+    }
+
+    #line {
+        display: none;
+    }
+
+    .prod-main-wrapper {
+        min-height: calc(100vh - 41vw);
+    }
+
+    .prod-inner-wrapper {
+        padding: 0 5vw;
+    }
+
+    #headline-vs {
+        font-size: 8vw;
+        line-height: 8vw;
+        margin-bottom: 7vw;
+    }
+
+    /* PRODUCTS */
+    .produkt-item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 2vw;
+    }
+
+    #description-titel {
+        font-size: 2.5vw;
+        margin-bottom: .2vw;
+    }
+
+    #description-beschreibung {
+        font-size: 2vw;
+        margin-bottom: .2vw;
+    }
+
+    #description-preis {
+        font-size: 2.5vw;
+    }
+
+
+    /* FOOTER */
+    #prod-footer-end {
+        height: 8vw;
+    }
+
+    #prod-footer-end-text {
+        font-size: 1.5vw;
+        line-height: 2vw;
+        padding: 3vw 0;
+    }
+
+    #prod-footer-end-text a {
+        font-size: 1.5vw;
+        line-height: 2vw;
+    }
+}
+
+
+
+@media (min-width: 1200px) {
+
+    .return-btn {
+        width: 60px;
+        height: 60px;
+        border: 2px solid var(--soft-orange);
+        border-radius: 50%;
+        background-image: url(../img/closeIconX_or.svg);
+        background-color: var(--white);
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: 50% 50%;
+        cursor: pointer;
+    }
+
+    .return-btn:hover {
+        width: 60px;
+        height: 60px;
+        border: 0;
+        border-radius: 50%;
+        background-image: url(../img/closeIconX_w.svg);
+        background-color: var(--soft-orange);
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: 50% 50%;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: all 0.2s ease 0s;
+        cursor: pointer;
+    }
+
+    .prod-main-wrapper {
+        max-width: 1200px;
+        min-height: calc(100vh - 580px);
+        margin: auto;
+        padding: 0;
+    }
+
+    #headline-vs {
+        font-size: 80px;
+        line-height: 80px;
+        margin-bottom: 60px;
+    }
+
+    /* PRODUCTS */
+    .produkt-item {
+        display: flex;
+        flex-direction: row;
+        text-align: unset;
+        align-items: baseline;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    #description-titel {
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+
+    #description-beschreibung {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    #description-preis {
+        font-size: 30px;
+    }
+
+
+    /* FOOTER */
+    #prod-footer-end {
+        height: 80px;
+    }
+
+    #prod-footer-end-text {
+        font-size: 16px;
+        line-height: 30px;
+        padding: 25px 0;
+    }
+
+    #prod-footer-end-text a {
+        font-size: 16px;
+        line-height: 30px;
+    }
+}
