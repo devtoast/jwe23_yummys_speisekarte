@@ -123,7 +123,7 @@ if (!empty($_POST)) {
                 <nav id="sub-nav">
 
                     <ul id="sub-nav-ul">
-                        <li class="sub-nav-li"> <a class="sub-nav-li-a" href="../yummys_speisekarte_tom.html">
+                        <li class="sub-nav-li"> <a class="sub-nav-li-a" href="../yummys_speisekarte_index.html">
                                 &#9668; Speisekarte</a>
                         </li>
                         <li class="sub-nav-li"> <a class="sub-nav-li-a" href="">Super-Admin &#9658;</a> </li>

@@ -50,7 +50,13 @@ function fehler($message)
 // request – Die Anfrage
 // request_uri – Abfrage des Datenpfades
 
-// explode — Teilt eine Zeichenkette anhand einer Zeichenkette
+/**
+ * explode — Teilt eine Zeichenkette anhand einer Zeichenkette
+ * 3 Parameter möglich 
+ * 1. seperator – (Die Begrenzungszeichenkette)
+ * 2. string – (Die Eingabezeichenkette)
+ * 3. limit – (aus wievielen Teilen das Rückgabe-ARRAY besteht)
+ */
 
 
 // GET-Parameter aus request_uri entfernen
@@ -88,7 +94,7 @@ if (empty($parameter)) {
     fehler("Nach der Version wurde keine Methode übergeben. Prüfen Sie Ihren Aufruf.");
 }
 
-//////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Ab hier ist in $parameter[0] immer die Hauptmethode drin,
 // in $parameter[1], etc. die genauere Spezifizierung was angefragt wurde
@@ -118,18 +124,14 @@ if ($parameter[0] == "kategorien") {
                     "result" => array()
                 );
                 $sql_kategorie_id = escape($parameter[1]);
-                // $result = query("SELECT * FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}'");
-                $result = query("SELECT produkte.titel, produkte.beschreibung, produkte.waehrung, produkte.preis, produkte.kategorie_id FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}' AND aktiv = 1");
+                // $result = query("SELECT * FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}' AND aktiv = 1 ORDER BY produkte.id ASC");
+                $result = query("SELECT produkte.titel, produkte.beschreibung, produkte.waehrung, produkte.preis, produkte.menge, produkte.einheit, produkte.kategorie_id FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}' AND aktiv = 1");
                 $produkt = mysqli_fetch_assoc($result);
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     $ausgabe["result"][] = $row;
                 }
-                /*
-                echo "<pre>";
-                print_r($ausgabe);
-                echo "</pre>";
-*/
+
                 echo json_encode($ausgabe);
                 exit;
             } else {
@@ -154,7 +156,7 @@ if ($parameter[0] == "kategorien") {
             }
         }
     }
-    //////////////////////////////////////
+    ////////////////////////////////////// ALLE PRODUKTE
 } else if ($parameter[0] == "produkte") {
     if (!empty($parameter[1])) {
         if ($parameter[1] == "list") {
@@ -199,3 +201,10 @@ if ($parameter[0] == "kategorien") {
 } else {
     fehler("Die Methode '{$parameter[0]}' existiert nicht.");
 }
+
+
+/*
+echo "<pre>";
+print_r($ausgabe);
+echo "</pre>";
+*/

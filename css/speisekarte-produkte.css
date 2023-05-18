@@ -190,6 +190,38 @@ body {
     margin-bottom: 10vw;
 }
 
+#headline-hs {
+    margin: 0;
+    padding: 0;
+    font-family: "Barrio-Regular", Arial, Helvetica, sans-serif;
+    color: var(--soft-red-dark);
+    font-size: 10vw;
+    line-height: 10vw;
+    text-align: center;
+    margin-bottom: 10vw;
+}
+
+#headline-ns {
+    margin: 0;
+    padding: 0;
+    font-family: "Lobster-Regular", Arial, Helvetica, sans-serif;
+    color: var(--soft-orange);
+    font-size: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    margin-bottom: 10vw;
+}
+
+#headline-ge {
+    margin: 0;
+    padding: 0;
+    font-family: "HennyPenny-Regular", Arial, Helvetica, sans-serif;
+    color: var(--soft-blue-dark);
+    font-size: 12vw;
+    line-height: 12vw;
+    text-align: center;
+    margin-bottom: 10vw;
+}
 
 /* PRODUCTS */
 .produkt-item {
@@ -209,6 +241,13 @@ body {
 #description-beschreibung {
     font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
     font-size: 4vw;
+    color: var(--grey-extra-dark);
+    margin-bottom: .5vw;
+}
+
+#description-einheit {
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    font-size: 3vw;
     color: var(--grey-extra-dark);
     margin-bottom: .5vw;
 }
@@ -303,6 +342,24 @@ body {
         margin-bottom: 7vw;
     }
 
+    #headline-hs {
+        font-size: 8vw;
+        line-height: 8vw;
+        margin-bottom: 7vw;
+    }
+
+    #headline-ns {
+        font-size: 8vw;
+        line-height: 8vw;
+        margin-bottom: 7vw;
+    }
+
+    #headline-ge {
+        font-size: 8vw;
+        line-height: 8vw;
+        margin-bottom: 7vw;
+    }
+
     /* PRODUCTS */
     .produkt-item {
         display: flex;
@@ -319,6 +376,10 @@ body {
     #description-beschreibung {
         font-size: 2vw;
         margin-bottom: .2vw;
+    }
+
+    #description-einheit {
+        font-size: 2vw;
     }
 
     #description-preis {
@@ -390,6 +451,24 @@ body {
         margin-bottom: 60px;
     }
 
+    #headline-hs {
+        font-size: 70px;
+        line-height: 70px;
+        margin-bottom: 60px;
+    }
+
+    #headline-ns {
+        font-size: 90px;
+        line-height: 90px;
+        margin-bottom: 60px;
+    }
+
+    #headline-ge {
+        font-size: 90px;
+        line-height: 90px;
+        margin-bottom: 60px;
+    }
+
     /* PRODUCTS */
     .produkt-item {
         display: flex;
@@ -408,6 +487,11 @@ body {
 
     #description-beschreibung {
         font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    #description-einheit {
+        font-size: 15px;
         margin-bottom: 0;
     }
 

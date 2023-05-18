@@ -16,7 +16,7 @@ $(document).ready(function () {
         .done(dataOutput);
 });
 
-
+/*
 // Danach Abfrage alle 10 Sekunden (Funktion "getData") //
 $(document).ready(function () {
     setInterval(getData, 10000);
@@ -34,7 +34,7 @@ function getData() {
     })
         .done(dataOutput);
 };
-
+*/
 
 // Danach Output auf Website //
 function dataOutput(data) {
@@ -42,7 +42,7 @@ function dataOutput(data) {
     // let produkt = data.result[0]; // Bezeichnung "result" aus API JSON OBJECT!!!!! (Pos. 0)
     // let produkt = data.result; // Bezeichnung "result" aus API JSON OBJECT!!!!! (Alle Pos.)
     let produkte = data.result;
-    // console.log(produkte);
+    console.log(produkte);
 
     const ProduktContainer = document.querySelector('.produkt-container');
     ProduktContainer.innerHTML = '';
