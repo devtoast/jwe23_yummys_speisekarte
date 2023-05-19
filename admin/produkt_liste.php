@@ -63,7 +63,7 @@ echo "</tbody>";
 echo "</table>";
 
 // HAUPTSPEISEN /////////////////////////////////////////////////////////////////
-
+echo "<p></p>";
 echo "Hauptspeisen";
 echo "<br>";
 
@@ -109,7 +109,7 @@ echo "</tbody>";
 echo "</table>";
 
 // NACHSPEISEN /////////////////////////////////////////////////////////////////
-
+echo "<p></p>";
 echo "Nachspeisen";
 echo "<br>";
 
@@ -155,7 +155,7 @@ echo "</tbody>";
 echo "</table>";
 
 // GETRAENKE /////////////////////////////////////////////////////////////////
-
+echo "<p></p>";
 echo "Getränke";
 echo "<br>";
 
