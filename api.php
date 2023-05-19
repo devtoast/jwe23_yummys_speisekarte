@@ -170,7 +170,8 @@ if ($parameter[0] == "kategorien") {
                 $sql_suche = escape($_GET["suche"]);
                 $where = "WHERE produkte.titel LIKE '%{$sql_suche}%'";
             }
-            $result = query("SELECT produkte.id, produkte.titel, produkte.beschreibung FROM produkte ORDER BY produkte.id ASC");
+            $result = query("SELECT produkte.id, produkte.titel, produkte.beschreibung, produkte.waehrung, produkte.preis, produkte.menge, produkte.einheit, produkte.kategorie_id FROM produkte WHERE aktiv = 1 ORDER BY produkte.id ASC");
+            // Liste aller Produkte
             while ($row = mysqli_fetch_assoc($result)) {
                 $ausgabe["result"][] = $row;
             }
