@@ -70,10 +70,13 @@ if ($erfolg) {
 
 
 ?>
+
     <?php
+    /*
     echo "<pre>";
     print_r($produkt);
     echo "</pre>";
+    */
     ?>
 
 
@@ -84,7 +87,7 @@ if ($erfolg) {
                                         ?>" method="post">
         <!-- vorausfüllen -->
 
-        <div>
+        <div class="form-item">
             <label for="kategorie_id">Kategorie: </label>
             <select name="kategorie_id" id="kategorie_id">
                 <option value="">- Bitte wählen -</option>
@@ -109,7 +112,7 @@ if ($erfolg) {
 
 
 
-        <div>
+        <div class="form-item">
             <label for="titel">Titel:</label>
             <input type="text" name="titel" id="titel" value="<?php if (!empty($_POST["titel"])) {
                                                                     echo htmlspecialchars($_POST["titel"]);
@@ -119,7 +122,7 @@ if ($erfolg) {
         </div>
 
 
-        <div>
+        <div class="form-item">
             <label for="beschreibung">Beschreibung:</label>
             <textarea name="beschreibung" id="beschreibung"><?php if (!empty($_POST["beschreibung"])) {
                                                                 echo htmlspecialchars($_POST["beschreibung"]);
@@ -129,7 +132,7 @@ if ($erfolg) {
         </div>
 
 
-        <div>
+        <div class="form-item">
             <label for="waehrung">Währung: </label>
             <select name="waehrung" id="waehrung">
                 <option value="€">€</option>
@@ -148,7 +151,7 @@ if ($erfolg) {
             </select>
         </div>
 
-        <div>
+        <div class="form-item">
             <label for="preis">Preis:</label>
             <input type="number" step="0.01" name="preis" id="preis" value="<?php
                                                                             if (!empty($_POST["preis"])) {
@@ -159,7 +162,7 @@ if ($erfolg) {
         </div>
 
 
-        <div>
+        <div class="form-item">
             <label for="menge">Menge:</label>
             <input type="number" step="0.01" name="menge" id="menge" value="<?php
                                                                             if (!empty($_POST["menge"])) {
@@ -170,7 +173,7 @@ if ($erfolg) {
         </div>
 
 
-        <div>
+        <div class="form-item">
             <label for="einheit">Einheit:</label>
             <input type="text" name="einheit" id="einheit" value="<?php
                                                                     if (!empty($_POST["einheit"])) {
@@ -181,7 +184,7 @@ if ($erfolg) {
         </div>
 
 
-        <div>
+        <div class="form-item">
             <label for="anlagedatum">Anlagedatum:</label>
             <input type="date" name="anlagedatum" id="anlagedatum" value="<?php
                                                                             if (!empty($_POST["anlagedatum"])) {
@@ -206,9 +209,11 @@ if ($erfolg) {
     </form>
 
     <?php
+    /*
     echo "<pre>";
     print_r($_POST);
     echo "</pre>";
+    */
     ?>
 
 <?php

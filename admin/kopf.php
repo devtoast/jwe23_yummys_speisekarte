@@ -40,8 +40,8 @@
             <ul id="side-nav-ul">
                 <li> <a class="main-li-a" href="produkt_liste.php">Produkte</a> </li>
                 <li> <a class="main-li-a" href="produkt_neu.php">Produkt Neu</a> </li>
-                <li> <a class="main-li-a" href="">Kategorien</a> </li>
-                <li> <a class="main-li-a" href="">Restaurants</a> </li>
+                <li> <a class="main-li-a" href="kategorie_liste.php">Kategorien</a> </li>
+                <li> <a class="main-li-a" href="restaurant_liste.php">Restaurants</a> </li>
                 <li> <a class="base-li-a" href="index.php">Start</a> </li>
                 <li> <a class="base-li-a" href="logout.php">Ausloggen</a> </li>
             </ul>
@@ -55,8 +55,8 @@
                 <li> <a class="base-li-a" href="index.php">Start</a> </li>
                 <li> <a class="main-li-a" href="produkt_liste.php">Produkte</a> </li>
                 <li> <a class="main-li-a" href="produkt_neu.php">Produkt Neu</a> </li>
-                <li> <a class="main-li-a" href="">Kategorien</a> </li>
-                <li> <a class="main-li-a" href="">Restaurants</a> </li>
+                <li> <a class="main-li-a" href="kategorie_liste.php">Kategorien</a> </li>
+                <li> <a class="main-li-a" href="restaurant_liste.php">Restaurants</a> </li>
             </ul>
 
         </nav>

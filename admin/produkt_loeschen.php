@@ -26,20 +26,21 @@ if (!empty($_GET["delete"])) {
     $produkt->entfernen();
     echo "<p>Das Produkt wurde erfolgreich gelöscht!</p>";
 } else {
-    echo "<strong>Kategorie:</strong> " . $produkt->kategorie()->bezeichnung . "<br />";
-    echo "<strong>Titel:</strong> " . $produkt->titel . "<br />";
-    echo "<strong>Beschreibung:</strong> " . $produkt->beschreibung . "<br />";
-    echo "<strong>Währung:</strong> " . $produkt->waehrung . "<br />";
-    echo "<strong>Preis:</strong> " . $produkt->preis . "<br />";
-    echo "<strong>Menge:</strong> " . $produkt->menge . "<br />";
-    echo "<strong>Einheit:</strong> " . $produkt->einheit . "<br />";
-    echo "<strong>Anlagedatum:</strong> " . $produkt->anlagedatum . "<br />";
-    echo "<strong>Status:</strong> " . $produkt->aktiv . "<br />";
+    echo "<p><strong>Kategorie:</strong> " . $produkt->kategorie()->bezeichnung . "</p>" . "<br />";
+    echo "<p><strong>Titel:</strong> " . $produkt->titel . "<br />";
+    echo "<p><strong>Beschreibung:</strong> " . $produkt->beschreibung . "</p>" . "<br />";
+    echo "<p><strong>Währung:</strong> " . $produkt->waehrung . "</p>" . "<br />";
+    echo "<p><strong>Preis:</strong> " . $produkt->preis . "</p>" . "<br />";
+    echo "<p><strong>Menge:</strong> " . $produkt->menge . "</p>" . "<br />";
+    echo "<p><strong>Einheit:</strong> " . $produkt->einheit . "</p>" . "<br />";
+    echo "<p><strong>Anlagedatum:</strong> " . $produkt->anlagedatum . "</p>" . "<br />";
+    echo "<p><strong>Status:</strong> " . $produkt->aktiv . "</p>" . "<br />";
 
     echo "<p>
-    <a href='produkt_liste.php'> Nein, abbrechen</a>
-    <a href='produkt_loeschen.php?id=" . $produkt->id . "&amp;delete=1'>Ja, löschen</a>
-    </p>";
+    <strong><a href='produkt_liste.php' style='color: green'> Nein, abbrechen</a></strong></p>";
+    echo "<p>
+    <a href='produkt_loeschen.php?id=" . $produkt->id . "&amp;delete=1' style='color: red'>Ja, löschen</a></p>";
+
     // Entweder zurück zur "produkt_liste"
 
     // oder $_GET["delete"] – Funktion "entfernen()" wird aktiv (DbRowAbstract(Klasse Produkt))
