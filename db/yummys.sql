@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 18. Mai 2023 um 17:36
+-- Erstellungszeit: 19. Mai 2023 um 18:07
 -- Server-Version: 10.4.27-MariaDB
 -- PHP-Version: 8.2.0
 
@@ -45,7 +45,7 @@ CREATE TABLE `benutzer` (
 --
 
 INSERT INTO `benutzer` (`id`, `vorname`, `nachname`, `benutzername`, `passwort`, `email`, `login_last`, `login_count`, `boss`, `mini_boss`) VALUES
-(1, 'Thomas', 'Astleithner', 'toast', '$2y$10$1/9.VmD6UtfXAjSObNKXi.QqQYiQhtNOeN3Dsoal6OKxtGX/LZ9Q6', 'toast@sol.at', '2023-05-18 17:22:39', 63, 0, 0),
+(1, 'Thomas', 'Astleithner', 'toast', '$2y$10$1/9.VmD6UtfXAjSObNKXi.QqQYiQhtNOeN3Dsoal6OKxtGX/LZ9Q6', 'toast@sol.at', '2023-05-19 17:51:06', 72, 0, 0),
 (2, 'Manuel', 'Obermoser', 'maniobi', '$2y$10$C4PpGYHtEzfRibxJg5aWzOiNThIcbItrY2onSSWd/XSDO.gvRKmc2', NULL, '2023-04-11 16:17:29', 1, 0, 0),
 (3, 'Christian', 'Rainer', 'rainchr', '$2y$10$YFzd73Q2BQXnfELdHfSVZOh9r1cuZuKj6q2r9qveCA0HxSiA1OEMq', NULL, '2023-04-11 16:11:06', 2, 0, 0),
 (4, 'Markus', 'Hauser', 'markhaus', '$2y$10$3Wo.16v2PZQT3cqSSEe6l.9qOmsmbEqf67G3Rwr4qXcdKyAdpdpiW', NULL, '2023-04-11 16:05:43', 1, 0, 0);
@@ -97,11 +97,9 @@ CREATE TABLE `produkte` (
 --
 
 INSERT INTO `produkte` (`id`, `titel`, `beschreibung`, `waehrung`, `preis`, `menge`, `einheit`, `anlagedatum`, `aktiv`, `kategorie_id`, `restaurant_id`, `benutzer_id`) VALUES
-(1, 'Schnitzel', 'vom Schwein mit Kartoffelsalat', '€', 12.5, 200, 'Gramm', '2023-05-05', 1, 2, NULL, NULL),
-(2, 'Eiernudeln', 'mit Blattsalat', '€', 8.5, 200, 'Gramm', '2023-05-05', 1, 2, NULL, NULL),
 (3, 'Kaisersmarren', 'mit Zwetschkenröster', '€', 10.2, 300, 'Gramm', '2023-05-12', 1, 3, NULL, NULL),
-(4, 'Bier', 'Pils', '€', 5.5, 0.5, 'Liter', '2023-05-05', 1, 4, NULL, NULL),
-(7, 'Gebeizter Saibling', 'in hauseigener Marinade mit Gemüse der Saison mit würziger Sauce', '€', 15, 200, 'Gramm', '2023-05-10', 1, 1, NULL, NULL),
+(4, 'Bier', 'Pils', '€', 5.5, 0.5, 'Liter', '2023-05-05', 0, 4, NULL, NULL),
+(7, 'Gebeizter Saibling', 'in hauseigener Marinade mit Gemüse der Saison mit würziger Sauce', '€', 15, 200, 'Gramm', '2023-05-10', 0, 1, NULL, NULL),
 (12, 'Gemischter Salat', 'mit Gemüse der Saison und Putenstreifen', '€', 10.5, 100, 'Gramm', '2023-05-06', 1, 1, NULL, NULL),
 (14, 'Apfelsaft', '100% Fruchtanteil', '€', 5.3, 0.5, 'Liter', '2023-05-04', 1, 4, NULL, NULL),
 (15, 'Nudelsuppe', 'Rindsuppe mit hausgemachten Nudeln', '€', 10, 100, 'Gramm', '2023-05-04', 1, 1, NULL, NULL),
@@ -118,7 +116,7 @@ INSERT INTO `produkte` (`id`, `titel`, `beschreibung`, `waehrung`, `preis`, `men
 (34, 'Salzburger Nockerl', 'Fluffige Spezialität mit Staubzucker', '€', 9.9, 100, 'Gramm', '2023-05-18', 1, 3, NULL, NULL),
 (35, 'Bier', 'Märzen', '€', 6.5, 0.5, 'Liter', '2023-05-18', 1, 4, NULL, NULL),
 (36, 'Bier', 'Pils', '€', 5, 0.33, 'Liter', '2023-05-18', 1, 4, NULL, NULL),
-(37, 'Mojito', 'mit Rum, Limettensaft und Minzblätter', '€', 12.3, 250, 'ml', '2023-05-18', 1, 4, NULL, NULL),
+(37, 'Mojito', 'mit Rum, Limettensaft und Minzblätter', '€', 12.3, 250, 'ml', '2023-05-18', 0, 4, NULL, NULL),
 (38, 'Schnaps', 'Bio-Marillenbrand\r\n40 Vol%', '€', 5.6, 2, 'cl', '2023-05-18', 1, 4, NULL, NULL);
 
 -- --------------------------------------------------------
