@@ -131,54 +131,106 @@
 
 #container-logo {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 #logo-src {
-    width: 100px;
+    width: 150px;
     height: auto;
+}
+
+/* PRODUCTS */
+#container-content {
+    padding: 0 200px;
+}
+
+#container-vs {
+    margin-bottom: 20px;
+}
+
+#container-hs {
+    margin-bottom: 20px;
+    margin-left: 600px;
+}
+
+#container-ns {
+    margin-bottom: 20px;
+    margin-left: 200px;
+}
+
+#container-ge {
+    margin-bottom: 20px;
+    margin-left: 900px;
 }
 
 #headline-vs {
     padding: 0;
     font-family: "Fascinate-Regular", Arial, Helvetica, sans-serif;
     color: var(--soft-green-dark);
-    font-size: 50px;
-    line-height: 60px;
-    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 #headline-hs {
     padding: 0;
     font-family: "Barrio-Regular", Arial, Helvetica, sans-serif;
     color: var(--soft-red-dark);
-    font-size: 50px;
-    line-height: 60px;
-    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 #headline-ns {
     padding: 0;
     font-family: "Lobster-Regular", Arial, Helvetica, sans-serif;
     color: var(--soft-orange);
-    font-size: 50px;
-    line-height: 60px;
-    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 #headline-ge {
     padding: 0;
     font-family: "HennyPenny-Regular", Arial, Helvetica, sans-serif;
-    color: var(--soft-blue-dark);
-    font-size: 50px;
-    line-height: 60px;
-    text-align: center;
+    color: var(--soft-blue);
+    font-size: 40px;
+    line-height: 50px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+.produkt-item {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+#description-titel {
+    font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: var(--grey-extra-dark);
+}
+
+#description-beschreibung {
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: var(--grey-extra-dark);
+}
+
+#description-einheit {
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: var(--grey-extra-dark);
+}
+
+#description-preis {
+    font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: var(--grey-extra-dark);
 }
