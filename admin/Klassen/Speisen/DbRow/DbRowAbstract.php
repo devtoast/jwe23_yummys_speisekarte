@@ -90,11 +90,21 @@ abstract class DbRowAbstract
             // in DB einfügen (INSERT INTO) - neuer Datensatz
         }
     }
+
+    /*
+    public function aktuellesDatum()
+    {
+        $db = Mysql::getInstanz();
+        $sqlAktuellesDatum = date("Y-m-d");
+
+        $db->query("UPDATE produkte SET aenderungsdatum='{$sqlAktuellesDatum}'");
+    }
+    */
 }
 
 
 /*
 echo "<pre>";
-print_r($this->daten);
+print_r($sqlAktuellesDatum);
 echo "</pre>";
 */

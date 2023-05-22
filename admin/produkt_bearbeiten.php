@@ -7,7 +7,10 @@ use WIFI\JUMMY\Validieren;
 include "setup.php";
 ist_eingeloggt();
 
+$sqlAktuellesDatum = date("Y-m-d");
+
 $erfolg = false;
+
 
 // prüfen ob das Formular abgeschickt wurde
 if (!empty($_POST)) {
@@ -35,7 +38,8 @@ if (!empty($_POST)) {
             "menge" => $_POST["menge"],
             "einheit" => $_POST["einheit"],
             "anlagedatum" => $_POST["anlagedatum"],
-            "aktiv" => $_POST["aktiv"]
+            "aktiv" => $_POST["aktiv"],
+            "aenderungsdatum" => $_POST["aenderungsdatum"]
         ));
 
         $produkt->speichern();
@@ -57,7 +61,9 @@ include "kopf.php";
 if ($erfolg) {
     echo "<p><strong>Produkt wurde bearbeitet.</strong><br>";
     // <a href='produkt_liste.php'>Zurück zur Liste</a></p>
-
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
 } else {
 
     if (!empty($validieren)) {
@@ -144,9 +150,7 @@ if ($erfolg) {
                     //  echo "<option value='{$produkt->waherung}'>{$produkt->waherung}</option>";
                     echo " selected";
                 }
-                // && $produkt->waehrung == $produkt->waehrung
-                // echo "<option value='{$produkt->waherung}'>{$produkt->waherung}</option>";
-                // echo htmlspecialchars($produkt->waehrung); {$produkt->waehrung}
+
                 ?>
             </select>
         </div>
@@ -197,9 +201,14 @@ if ($erfolg) {
 
         <div>
             <label for="aktiv">Aktivieren:</label>
-            <input type="radio" name="aktiv" checked="checked" value="0">Aus
-            <input type="radio" name="aktiv" value="1">Ein
+            <input type="radio" name="aktiv" checked="checked" value="<?php echo 0 ?>">Aus
+            <input type="radio" name="aktiv" value="<?php echo 1 ?>">Ein
+
+            <input type="hidden" name="aenderungsdatum" value="<?php
+                                                                echo htmlspecialchars($sqlAktuellesDatum);
+                                                                ?>">
         </div>
+
         <!--[value]="1" / value sollte eigentliuch int sein, ist aber nicht/ value als String funktioniert wg. Datenbankeinstellung (tinyint) nicht / ist in diesem Fall der value int od. string?-->
 
         <div>
@@ -209,11 +218,13 @@ if ($erfolg) {
     </form>
 
     <?php
+
     /*
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
-    */
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+*/
+
     ?>
 
 <?php
