@@ -97,7 +97,7 @@ abstract class DbRowAbstract
         $db = Mysql::getInstanz();
         $sqlAktuellesDatum = date("Y-m-d");
 
-        $db->query("UPDATE produkte SET aenderungsdatum='{$sqlAktuellesDatum}'");
+        $db->query("UPDATE {$this->tabelle} SET aenderungsdatum='{$sqlAktuellesDatum}'");
     }
     */
 }
