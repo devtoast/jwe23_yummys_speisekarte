@@ -231,28 +231,28 @@ body {
     margin-bottom: 5vw;
 }
 
-#description-titel {
+.description-titel {
     font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
     font-size: 5vw;
     color: var(--grey-extra-dark);
     margin-bottom: .5vw;
 }
 
-#description-beschreibung {
+.description-beschreibung {
     font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
     font-size: 4vw;
     color: var(--grey-extra-dark);
     margin-bottom: .5vw;
 }
 
-#description-einheit {
+.description-einheit {
     font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
     font-size: 3vw;
     color: var(--grey-extra-dark);
     margin-bottom: .5vw;
 }
 
-#description-preis {
+.description-preis {
     font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
     font-size: 5vw;
     color: var(--grey-extra-dark);
@@ -368,21 +368,21 @@ body {
         margin-bottom: 2vw;
     }
 
-    #description-titel {
+    .description-titel {
         font-size: 2.5vw;
         margin-bottom: .2vw;
     }
 
-    #description-beschreibung {
+    .description-beschreibung {
         font-size: 2vw;
         margin-bottom: .2vw;
     }
 
-    #description-einheit {
+    .description-einheit {
         font-size: 2vw;
     }
 
-    #description-preis {
+    .description-preis {
         font-size: 2.5vw;
     }
 
@@ -480,22 +480,22 @@ body {
         margin-bottom: 30px;
     }
 
-    #description-titel {
+    .description-titel {
         font-size: 30px;
         margin-bottom: 0;
     }
 
-    #description-beschreibung {
+    .description-beschreibung {
         font-size: 20px;
         margin-bottom: 0;
     }
 
-    #description-einheit {
+    .description-einheit {
         font-size: 15px;
         margin-bottom: 0;
     }
 
-    #description-preis {
+    .description-preis {
         font-size: 30px;
     }
 

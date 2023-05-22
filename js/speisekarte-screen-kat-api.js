@@ -1,18 +1,46 @@
-let endpoint = 'http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/list';
+let endpointKat = 'http://localhost/jwe23_praxisprojekt_thomas/jwe23_yummys_speisekarte/api/v1/kategorien/list';
 
 // Erstmalige Initialisierung //
 $(document).ready(function () {
     $.ajax({
-        url: endpoint,
+        url: endpointKat,
         dataType: 'json',
         type: 'GET',
 
         success: function (results) {
             //console.log(results);
+            dataOutputKat(results)
+        },
+
+        error: function (response) {
+            console.log(response);
         }
     })
-        .done(dataOutputKat);
 });
+
+
+// Danach Abfrage alle 10 Sekunden (Funktion "getDataKat") //
+$(document).ready(function () {
+    setInterval(getDataKat, 10000);
+});
+
+function getDataKat() {
+    $.ajax({
+        url: endpointKat,
+        dataType: 'json',
+        type: 'GET',
+
+        success: function (results) {
+            console.log(results);
+            dataOutputKat(results);
+        },
+
+        error: function (response) {
+            console.log(response);
+        }
+    })
+
+};
 
 
 // Danach Output auf Website //

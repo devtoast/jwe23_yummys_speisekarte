@@ -126,7 +126,7 @@ if ($parameter[0] == "kategorien") {
                 $sql_kategorie_id = escape($parameter[1]);
                 // $result = query("SELECT * FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}' AND aktiv = 1 ORDER BY produkte.id ASC");
                 $result = query("SELECT produkte.titel, produkte.beschreibung, produkte.waehrung, produkte.preis, produkte.menge, produkte.einheit, produkte.kategorie_id FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}' AND aktiv = 1");
-                $produkt = mysqli_fetch_assoc($result);
+                // $produkt = mysqli_fetch_assoc($result); // WEG
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     $ausgabe["result"][] = $row;

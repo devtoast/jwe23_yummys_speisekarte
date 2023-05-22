@@ -9,13 +9,17 @@ $(document).ready(function () {
 
         success: function (results) {
             //console.log(results);
+            dataOutputProd(results)
+        },
+
+        error: function (response) {
+            console.log(response);
         }
     })
-        .done(dataOutputProd);
 });
 
-/*
-// Danach Abfrage alle 10 Sekunden (Funktion "getDataProd") //
+
+// Danach Abfrage alle 10 Sekunden (Funktion "getDataKat") //
 $(document).ready(function () {
     setInterval(getDataProd, 10000);
 });
@@ -28,11 +32,16 @@ function getDataProd() {
 
         success: function (results) {
             // console.log(results);
+            dataOutputProd(results);
+        },
+
+        error: function (response) {
+            console.log(response);
         }
     })
-        .done(dataOutputProd);
+
 };
-*/
+
 
 function dataOutputProd(data) {
 
@@ -82,15 +91,17 @@ function dataOutputProd(data) {
         const preis = produkt.preis;
 
         const descriptionTitel = document.createElement('span');
-        descriptionTitel.setAttribute('id', 'description-titel');
+        descriptionTitel.className = 'description-titel';
         descriptionTitel.textContent = titel;
+        // descriptionTitel.setAttribute('class', 'description-titel');
+        // ginge auch wird aber für Klassen nicht empfohlen!!!!!!!! IE Bugs
 
         const descriptionBeschreibung = document.createElement('span');
-        descriptionBeschreibung.setAttribute('id', 'description-beschreibung');
+        descriptionBeschreibung.className = 'description-beschreibung';
         descriptionBeschreibung.textContent = beschreibung;
 
         const descriptionPreis = document.createElement('span');
-        descriptionPreis.setAttribute('id', 'description-preis');
+        descriptionPreis.className = 'description-preis';
         descriptionPreis.textContent = waehrung + ' ' + preis;
 
 
@@ -113,15 +124,15 @@ function dataOutputProd(data) {
         const preis = produkt.preis;
 
         const descriptionTitel = document.createElement('span');
-        descriptionTitel.setAttribute('id', 'description-titel');
+        descriptionTitel.className = 'description-titel';
         descriptionTitel.textContent = titel;
 
         const descriptionBeschreibung = document.createElement('span');
-        descriptionBeschreibung.setAttribute('id', 'description-beschreibung');
+        descriptionBeschreibung.className = 'description-beschreibung';
         descriptionBeschreibung.textContent = beschreibung;
 
         const descriptionPreis = document.createElement('span');
-        descriptionPreis.setAttribute('id', 'description-preis');
+        descriptionPreis.className = 'description-preis';
         descriptionPreis.textContent = waehrung + ' ' + preis;
 
 
@@ -144,15 +155,15 @@ function dataOutputProd(data) {
         const preis = produkt.preis;
 
         const descriptionTitel = document.createElement('span');
-        descriptionTitel.setAttribute('id', 'description-titel');
+        descriptionTitel.className = 'description-titel';
         descriptionTitel.textContent = titel;
 
         const descriptionBeschreibung = document.createElement('span');
-        descriptionBeschreibung.setAttribute('id', 'description-beschreibung');
+        descriptionBeschreibung.className = 'description-beschreibung';
         descriptionBeschreibung.textContent = beschreibung;
 
         const descriptionPreis = document.createElement('span');
-        descriptionPreis.setAttribute('id', 'description-preis');
+        descriptionPreis.className = 'description-preis';
         descriptionPreis.textContent = waehrung + ' ' + preis;
 
 
@@ -177,19 +188,19 @@ function dataOutputProd(data) {
         const preis = produkt.preis;
 
         const descriptionTitel = document.createElement('span');
-        descriptionTitel.setAttribute('id', 'description-titel');
+        descriptionTitel.className = 'description-titel';
         descriptionTitel.textContent = titel;
 
         const descriptionBeschreibung = document.createElement('span');
-        descriptionBeschreibung.setAttribute('id', 'description-beschreibung');
+        descriptionBeschreibung.className = 'description-beschreibung';
         descriptionBeschreibung.textContent = beschreibung;
 
         const descriptionEinheit = document.createElement('span');
-        descriptionEinheit.setAttribute('id', 'description-einheit');
+        descriptionEinheit.className = 'description-einheit';
         descriptionEinheit.textContent = menge + ' ' + einheit;
 
         const descriptionPreis = document.createElement('span');
-        descriptionPreis.setAttribute('id', 'description-preis');
+        descriptionPreis.className = 'description-preis';
         descriptionPreis.textContent = waehrung + ' ' + preis;
 
 
