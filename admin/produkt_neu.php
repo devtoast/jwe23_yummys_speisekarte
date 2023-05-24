@@ -7,6 +7,8 @@ use WIFI\JUMMY\Validieren;
 include "setup.php";
 ist_eingeloggt();
 
+$sqlAktuellesDatum = date("Y-m-d");
+
 $erfolg = false;
 
 // prüfen ob das Formular abgeschickt wurde
@@ -35,7 +37,8 @@ if (!empty($_POST)) {
             "menge" => $_POST["menge"],
             "einheit" => $_POST["einheit"],
             "anlagedatum" => $_POST["anlagedatum"],
-            "aktiv" => $_POST["aktiv"]
+            "aktiv" => $_POST["aktiv"],
+            "aenderungsdatum" => $_POST["aenderungsdatum"]
         ));
 
         $produkt->speichern();
@@ -155,6 +158,10 @@ if ($erfolg) {
             <label for="aktiv">Aktivieren:</label>
             <input type="radio" name="aktiv" checked="checked" value="0">Aus
             <input type="radio" name="aktiv" value="1">Ein
+
+            <input type="hidden" name="aenderungsdatum" value="<?php
+                                                                echo htmlspecialchars($sqlAktuellesDatum);
+                                                                ?>">
         </div>
         <!--[value]="1" / value sollte eigentliuch int sein, ist aber nicht/ value als String funktioniert wg. Datenbankeinstellung (tinyint) nicht / ist in diesem Fall der value int od. string?-->
 

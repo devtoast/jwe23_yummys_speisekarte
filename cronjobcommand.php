@@ -1,13 +1,13 @@
 <?php
 
-namespace WIFI\JUMMY\Speisen\DbRow;
+$db = mysqli_connect("localhost", "root", "", "yummys");
+mysqli_set_charset($db, "utf8");
 
-use WIFI\JUMMY\Mysql;
-// Erlaubt getInstanz (Die Datenbankverbindung) aus Mysql
+mysqli_query($db, "DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVAL 365 DAY AND aktiv = 0");
+// Lösche aus der DB "produkte" alle Einträge bei denen das Änderungsdatum kleiner als JETZT, 
+// minus 365 Tage (=1Jahr) ist (- INTERVAL 1 YEAR sollte auch gehen)
+// und der "aktiv"-Status auf null (0) steht.
 
-include "setup.php";
-
-/*
-include 'your_db_connection';
-mysql_query("DELETE FROM your_table_name WHERE Date < NOW()");
-*/
+// Bei jeder Änderung würde ein neues Änderfungsdatum in der DB gespeichert (inkl. Statusänderung) 
+// bzw. war seit Anlage innerhalb eines Jahres noch nie aktiv.
+// D.h.: Das Produkt wurde länger als ein Jahr nicht mehr geändert (oder jemals aktiviert) UND steht auf 0 (inaktiv)
