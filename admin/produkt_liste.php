@@ -177,7 +177,7 @@ echo "</thead>";
 
 echo "<tbody>";
 $produkteGe = new Produkte();
-$alleProdukteGe = $produkteNs->alleProdukteGe();
+$alleProdukteGe = $produkteGe->alleProdukteGe();
 
 foreach ($alleProdukteGe as $getraenk) {
     echo "<tr>";
@@ -193,7 +193,6 @@ foreach ($alleProdukteGe as $getraenk) {
     echo "<td>" . $getraenk->aktiv . "</td>";
     echo "<td>" . "<a href='produkt_bearbeiten.php?id={$getraenk->id}'>Bearbeiten</a>" . "<br>"
         . "<a href='produkt_loeschen.php?id={$getraenk->id}'>Löschen</a>" . "</td>";
-
 
     echo "</tr>";
 }
