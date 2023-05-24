@@ -9,5 +9,5 @@ mysqli_query($db, "DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVA
 // und der "aktiv"-Status auf null (0) steht.
 
 // Bei jeder Änderung würde ein neues Änderfungsdatum in der DB gespeichert (inkl. Statusänderung) 
-// bzw. war seit Anlage innerhalb eines Jahres noch nie aktiv.
+// bzw. war seit Anlage innerhalb eines Jahres noch nie aktiv (Bei Neuanlage wird ebenfalls ein Änderungsdatum mitgegeben und steht initial auf 0).
 // D.h.: Das Produkt wurde länger als ein Jahr nicht mehr geändert (oder jemals aktiviert) UND steht auf 0 (inaktiv)
