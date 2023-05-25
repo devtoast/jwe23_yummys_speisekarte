@@ -109,7 +109,7 @@ if (!empty($_POST)) {
 
                         <div class="form-item">
                             <label for="passwort">Passwort:</label>
-                            <input type="text" name="passwort" id="passwort" placeholder=" Passwort">
+                            <input type="password" name="passwort" id="passwort" placeholder=" Passwort">
                         </div>
 
                         <div class="form-item-bt">

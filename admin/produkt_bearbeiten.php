@@ -61,9 +61,7 @@ include "kopf.php";
 if ($erfolg) {
     echo "<p><strong>Produkt wurde bearbeitet.</strong><br>";
     // <a href='produkt_liste.php'>Zurück zur Liste</a></p>
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+
 } else {
 
     if (!empty($validieren)) {
@@ -79,6 +77,10 @@ if ($erfolg) {
 
     <?php
     /*
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+
     echo "<pre>";
     print_r($produkt);
     echo "</pre>";

@@ -38,7 +38,8 @@ class Produkte
 
         $produkteGesamtVs = array();
 
-        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 1");
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 1 ORDER BY anlagedatum DESC");
+        // ASC – kleinster Wert zuerst / DESC – größter Wert zuerst
         while ($row = $result->fetch_assoc()) {
             $produkteGesamtVs[] = new Produkt($row);
         }
@@ -53,7 +54,7 @@ class Produkte
 
         $produkteGesamtHs = array();
 
-        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 2");
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 2 ORDER BY anlagedatum DESC");
         while ($row = $result->fetch_assoc()) {
             $produkteGesamtHs[] = new Produkt($row);
         }
@@ -68,7 +69,7 @@ class Produkte
 
         $produkteGesamtNs = array();
 
-        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 3");
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 3 ORDER BY anlagedatum DESC");
         while ($row = $result->fetch_assoc()) {
             $produkteGesamtNs[] = new Produkt($row);
         }
@@ -83,7 +84,7 @@ class Produkte
 
         $produkteGesamtGe = array();
 
-        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 4");
+        $result = $db->query("SELECT * FROM produkte WHERE kategorie_id = 4 ORDER BY anlagedatum DESC");
         while ($row = $result->fetch_assoc()) {
             $produkteGesamtGe[] = new Produkt($row);
         }
