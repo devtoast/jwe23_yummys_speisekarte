@@ -9,7 +9,7 @@
 
     <link rel="icon" sizes="48x48" href="../img/yummy_logo.ico">
     <link rel="stylesheet" href="../css/admin-base.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-content.css">
 
 </head>
 

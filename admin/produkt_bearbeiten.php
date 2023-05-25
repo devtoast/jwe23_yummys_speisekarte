@@ -85,137 +85,139 @@ if ($erfolg) {
     */
     ?>
 
+    <div class="admin-form">
+        <form action="produkt_bearbeiten.php<?php
+                                            if (!empty($produkt)) {
+                                                echo "?id=" . $produkt->id;
+                                            }
+                                            ?>" method="post">
+            <!-- vorausfüllen -->
 
-    <form action="produkt_bearbeiten.php<?php
-                                        if (!empty($produkt)) {
-                                            echo "?id=" . $produkt->id;
-                                        }
-                                        ?>" method="post">
-        <!-- vorausfüllen -->
+            <div class="form-item">
+                <label for="kategorie_id">Kategorie: </label>
+                <select name="kategorie_id" id="kategorie_id">
+                    <option value="">- Bitte wählen -</option>
 
-        <div class="form-item">
-            <label for="kategorie_id">Kategorie: </label>
-            <select name="kategorie_id" id="kategorie_id">
-                <option value="">- Bitte wählen -</option>
-
-                <?php
-                $kategorien = new Kategorien();
-                $alleKategorien = $kategorien->alleKategorien();
-                foreach ($alleKategorien as $kategorie) {
-                    echo "<option value='{$kategorie->id}'";
-                    if (!empty($_POST["kategorie_id"]) && $_POST["kategorie_id"] == $kategorie->id) {
-                        echo " selected";
-                    } else if (!empty($produkt) && $produkt->kategorie_id == $kategorie->id) {
-                        echo " selected";
-                        // ACHTUNG ACHTUNG kategorie_id NICHT kategorien_id ACHTUNG ACHTUNG!!!!!
+                    <?php
+                    $kategorien = new Kategorien();
+                    $alleKategorien = $kategorien->alleKategorien();
+                    foreach ($alleKategorien as $kategorie) {
+                        echo "<option value='{$kategorie->id}'";
+                        if (!empty($_POST["kategorie_id"]) && $_POST["kategorie_id"] == $kategorie->id) {
+                            echo " selected";
+                        } else if (!empty($produkt) && $produkt->kategorie_id == $kategorie->id) {
+                            echo " selected";
+                            // ACHTUNG ACHTUNG kategorie_id NICHT kategorien_id ACHTUNG ACHTUNG!!!!!
+                        }
+                        echo ">{$kategorie->bezeichnung}</option>";
+                        // bezeichnung = DIE Bezeichnung in DB
                     }
-                    echo ">{$kategorie->bezeichnung}</option>";
-                    // bezeichnung = DIE Bezeichnung in DB
-                }
-                ?>
-            </select>
-        </div>
+                    ?>
+                </select>
+            </div>
 
 
 
-        <div class="form-item">
-            <label for="titel">Titel:</label>
-            <input type="text" name="titel" id="titel" value="<?php if (!empty($_POST["titel"])) {
-                                                                    echo htmlspecialchars($_POST["titel"]);
-                                                                } else if (!empty($produkt)) {
-                                                                    echo htmlspecialchars($produkt->titel);
-                                                                } ?>"> <!-- vorausfüllen -->
-        </div>
-
-
-        <div class="form-item">
-            <label for="beschreibung">Beschreibung:</label>
-            <textarea name="beschreibung" id="beschreibung"><?php if (!empty($_POST["beschreibung"])) {
-                                                                echo htmlspecialchars($_POST["beschreibung"]);
-                                                            } else if (!empty($produkt)) {
-                                                                echo htmlspecialchars($produkt->beschreibung);
-                                                            } ?></textarea>
-        </div>
-
-
-        <div class="form-item">
-            <label for="waehrung">Währung: </label>
-            <select name="waehrung" id="waehrung">
-                <option value="€">€</option>
-                <option value="$">$</option>
-                <option value="£">£</option>
-                <?php if (!empty($_POST["waehrung"])) {
-                    echo " selected";
-                } else if (!empty($produkt)) {
-                    //  echo "<option value='{$produkt->waherung}'>{$produkt->waherung}</option>";
-                    echo " selected";
-                }
-
-                ?>
-            </select>
-        </div>
-
-        <div class="form-item">
-            <label for="preis">Preis:</label>
-            <input type="number" step="0.01" name="preis" id="preis" value="<?php
-                                                                            if (!empty($_POST["preis"])) {
-                                                                                echo htmlspecialchars($_POST["preis"]);
-                                                                            } else if (!empty($produkt)) {
-                                                                                echo htmlspecialchars($produkt->preis);
-                                                                            } ?>">
-        </div>
-
-
-        <div class="form-item">
-            <label for="menge">Menge:</label>
-            <input type="number" step="0.01" name="menge" id="menge" value="<?php
-                                                                            if (!empty($_POST["menge"])) {
-                                                                                echo htmlspecialchars($_POST["menge"]);
-                                                                            } else if (!empty($produkt)) {
-                                                                                echo htmlspecialchars($produkt->menge);
-                                                                            } ?>">
-        </div>
-
-
-        <div class="form-item">
-            <label for="einheit">Einheit:</label>
-            <input type="text" name="einheit" id="einheit" value="<?php
-                                                                    if (!empty($_POST["einheit"])) {
-                                                                        echo htmlspecialchars($_POST["einheit"]);
+            <div class="form-item">
+                <label for="titel">Titel:</label>
+                <input type="text" name="titel" id="titel" value="<?php if (!empty($_POST["titel"])) {
+                                                                        echo htmlspecialchars($_POST["titel"]);
                                                                     } else if (!empty($produkt)) {
-                                                                        echo htmlspecialchars($produkt->einheit);
-                                                                    } ?>">
-        </div>
+                                                                        echo htmlspecialchars($produkt->titel);
+                                                                    } ?>"> <!-- vorausfüllen -->
+            </div>
 
 
-        <div class="form-item">
-            <label for="anlagedatum">Anlagedatum:</label>
-            <input type="date" name="anlagedatum" id="anlagedatum" value="<?php
-                                                                            if (!empty($_POST["anlagedatum"])) {
-                                                                                echo htmlspecialchars($_POST["anlagedatum"]);
-                                                                            } else if (!empty($produkt)) {
-                                                                                echo htmlspecialchars($produkt->anlagedatum);
-                                                                            } ?>">
-        </div>
+            <div class="form-item">
+                <label for="beschreibung">Beschreibung:</label>
+                <textarea name="beschreibung" id="beschreibung"><?php if (!empty($_POST["beschreibung"])) {
+                                                                    echo htmlspecialchars($_POST["beschreibung"]);
+                                                                } else if (!empty($produkt)) {
+                                                                    echo htmlspecialchars($produkt->beschreibung);
+                                                                } ?></textarea>
+            </div>
 
 
-        <div>
-            <label for="aktiv">Aktivieren:</label>
-            <input type="radio" name="aktiv" checked="checked" value="<?php echo 0 ?>">Aus
-            <input type="radio" name="aktiv" value="<?php echo 1 ?>">Ein
+            <div class="form-item">
+                <label for="waehrung">Währung: </label>
+                <select name="waehrung" id="waehrung">
+                    <option value="€">€</option>
+                    <option value="$">$</option>
+                    <option value="£">£</option>
+                    <?php if (!empty($_POST["waehrung"])) {
+                        echo " selected";
+                    } else if (!empty($produkt)) {
+                        //  echo "<option value='{$produkt->waherung}'>{$produkt->waherung}</option>";
+                        echo " selected";
+                    }
 
-            <input type="hidden" name="aenderungsdatum" value="<?php
-                                                                echo htmlspecialchars($sqlAktuellesDatum);
-                                                                ?>">
-        </div>
+                    ?>
+                </select>
+            </div>
 
-        <!--[value]="1" / value sollte eigentliuch int sein, ist aber nicht/ value als String funktioniert wg. Datenbankeinstellung (tinyint) nicht / ist in diesem Fall der value int od. string?-->
+            <div class="form-item">
+                <label for="preis">Preis:</label>
+                <input type="number" step="0.01" name="preis" id="preis" value="<?php
+                                                                                if (!empty($_POST["preis"])) {
+                                                                                    echo htmlspecialchars($_POST["preis"]);
+                                                                                } else if (!empty($produkt)) {
+                                                                                    echo htmlspecialchars($produkt->preis);
+                                                                                } ?>">
+            </div>
 
-        <div>
-            <button type="submit">Produkt speichern</button>
-        </div>
 
-    </form>
+            <div class="form-item">
+                <label for="menge">Menge:</label>
+                <input type="number" step="0.01" name="menge" id="menge" value="<?php
+                                                                                if (!empty($_POST["menge"])) {
+                                                                                    echo htmlspecialchars($_POST["menge"]);
+                                                                                } else if (!empty($produkt)) {
+                                                                                    echo htmlspecialchars($produkt->menge);
+                                                                                } ?>">
+            </div>
+
+
+            <div class="form-item">
+                <label for="einheit">Einheit:</label>
+                <input type="text" name="einheit" id="einheit" value="<?php
+                                                                        if (!empty($_POST["einheit"])) {
+                                                                            echo htmlspecialchars($_POST["einheit"]);
+                                                                        } else if (!empty($produkt)) {
+                                                                            echo htmlspecialchars($produkt->einheit);
+                                                                        } ?>">
+            </div>
+
+
+            <div class="form-item">
+                <label for="anlagedatum">Anlagedatum:</label>
+                <input type="date" name="anlagedatum" id="anlagedatum" value="<?php
+                                                                                if (!empty($_POST["anlagedatum"])) {
+                                                                                    echo htmlspecialchars($_POST["anlagedatum"]);
+                                                                                } else if (!empty($produkt)) {
+                                                                                    echo htmlspecialchars($produkt->anlagedatum);
+                                                                                } ?>">
+            </div>
+
+
+            <div>
+                <label for="aktiv">Aktivieren:</label>
+                <input type="radio" name="aktiv" checked="checked" value="<?php echo 0 ?>">Aus
+                <input type="radio" name="aktiv" value="<?php echo 1 ?>">Ein
+
+                <input type="hidden" name="aenderungsdatum" value="<?php
+                                                                    echo htmlspecialchars($sqlAktuellesDatum);
+                                                                    ?>">
+            </div>
+
+            <!--[value]="1" / value sollte eigentliuch int sein, ist aber nicht/ value als String funktioniert wg. Datenbankeinstellung (tinyint) nicht / ist in diesem Fall der value int od. string?-->
+
+            <div>
+                <button type="submit">Produkt speichern</button>
+            </div>
+
+        </form>
+
+    </div>
 
     <?php
 

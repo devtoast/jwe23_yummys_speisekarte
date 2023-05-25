@@ -100,3 +100,54 @@ body {
 * {
     box-sizing: border-box;
 }
+
+.table-headline {
+    font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: var(--soft-orange);
+    margin-bottom: 10px;
+}
+
+.table-admin {
+    font-family: "OpenSans-Medium", Arial, Helvetica, sans-serif;
+    color: var(--grey-extra-dark);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-admin td,
+.table-admin th {
+    border: 1px solid var(--grey-medium);
+    text-align: center;
+    padding: 8px;
+}
+
+.table-admin th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: var(--grey-dark);
+    color: white;
+}
+
+.table-admin tr:nth-child(even) {
+    background-color: var(--grey-extra-light);
+}
+
+.table-admin tr:hover {
+    background-color: var(--soft-orange-extra-light);
+}
+
+.table-admin a {
+    text-decoration: underline;
+    color: var(--soft-red-dark);
+}
+
+.table-admin a:nth-child(1) {
+    text-decoration: underline;
+    color: var(--soft-orange);
+}
+
+.table-admin a:hover {
+    text-decoration: underline;
+    color: var(--soft-green-dark);
+}

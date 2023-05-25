@@ -17,11 +17,11 @@ include "kopf.php";
 
 // VORSPEISEN /////////////////////////////////////////////////////////////////
 
-echo "Vorspeisen";
+echo "<div class='table-headline'>Vorspeisen</div>";
 echo "<br>";
 
-
-echo "<table border='1'>";
+echo "<div style='overflow-x: auto;'>";
+echo "<table class='table-admin'>";
 
 echo "<thead>";
 echo "<th>Kategorie</th>";
@@ -61,14 +61,15 @@ foreach ($alleProdukteVs as $vorspeise) {
 echo "</tbody>";
 
 echo "</table>";
+echo "</div>";
 
 // HAUPTSPEISEN /////////////////////////////////////////////////////////////////
 echo "<p></p>";
-echo "Hauptspeisen";
+echo "<div class='table-headline'>Hauptspeisen</div>";
 echo "<br>";
 
 
-echo "<table border='1'>";
+echo "<table class='table-admin'>";
 
 echo "<thead>";
 echo "<th>Kategorie</th>";
@@ -110,11 +111,11 @@ echo "</table>";
 
 // NACHSPEISEN /////////////////////////////////////////////////////////////////
 echo "<p></p>";
-echo "Nachspeisen";
+echo "<div class='table-headline'>Nachspeisen</div>";
 echo "<br>";
 
 
-echo "<table border='1'>";
+echo "<table class='table-admin'>";
 
 echo "<thead>";
 echo "<th>Kategorie</th>";
@@ -146,7 +147,7 @@ foreach ($alleProdukteNs as $nachtspeise) {
     echo "<td>" . $nachtspeise->anlagedatum . "</td>";
     echo "<td>" . $nachtspeise->aktiv . "</td>";
     echo "<td>" . "<a href='produkt_bearbeiten.php?id={$nachtspeise->id}'>Bearbeiten</a>" . "<br>"
-        . "<a href='produkt_loeschen.php?id={$nachtspeise->id}'>Löschen</a>" . "</td>";
+        . "<a class='table-delete', href='produkt_loeschen.php?id={$nachtspeise->id}'>Löschen</a>" . "</td>";
 
     echo "</tr>";
 }
@@ -156,11 +157,11 @@ echo "</table>";
 
 // GETRAENKE /////////////////////////////////////////////////////////////////
 echo "<p></p>";
-echo "Getränke";
+echo "<div class='table-headline'>Getränke</div>";
 echo "<br>";
 
 
-echo "<table border='1'>";
+echo "<table class='table-admin'>";
 
 echo "<thead>";
 echo "<th>Kategorie</th>";

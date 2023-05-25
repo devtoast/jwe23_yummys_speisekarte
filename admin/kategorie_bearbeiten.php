@@ -61,29 +61,30 @@ if ($erfolg) {
     */
     ?>
 
-    <form action="kategorie_bearbeiten.php<?php
-                                            if (!empty($kategorie)) {
-                                                echo "?id=" . $kategorie->id;
-                                            }
-                                            ?>" method="post">
-        <!-- vorausfüllen -->
+    <div class="admin-form">
+        <form action="kategorie_bearbeiten.php<?php
+                                                if (!empty($kategorie)) {
+                                                    echo "?id=" . $kategorie->id;
+                                                }
+                                                ?>" method="post">
+            <!-- vorausfüllen -->
 
-        <div class="form-item">
-            <label for="bezeichnung">Titel:</label>
-            <input type="text" name="bezeichnung" id="bezeichnung" value="<?php if (!empty($_POST["bezeichnung"])) {
-                                                                                echo htmlspecialchars($_POST["bezeichnung"]);
-                                                                            } else if (!empty($kategorie)) {
-                                                                                echo htmlspecialchars($kategorie->bezeichnung);
-                                                                            } ?>"> <!-- vorausfüllen -->
-        </div>
+            <div class="form-item">
+                <label for="bezeichnung">Titel:</label>
+                <input type="text" name="bezeichnung" id="bezeichnung" value="<?php if (!empty($_POST["bezeichnung"])) {
+                                                                                    echo htmlspecialchars($_POST["bezeichnung"]);
+                                                                                } else if (!empty($kategorie)) {
+                                                                                    echo htmlspecialchars($kategorie->bezeichnung);
+                                                                                } ?>"> <!-- vorausfüllen -->
+            </div>
 
 
-        <div>
-            <button type="submit">Kategorie speichern</button>
-        </div>
+            <div>
+                <button type="submit">Kategorie speichern</button>
+            </div>
 
-    </form>
-
+        </form>
+    </div>
 
 
 <?php

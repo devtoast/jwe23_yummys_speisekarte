@@ -17,7 +17,9 @@ include "kopf.php";
 
 <?php
 echo "<br>";
-echo "<table border='1'>";
+echo "<div style='overflow-x: auto;'>";
+
+echo "<table class='table-admin'>";
 
 echo "<thead>";
 echo "<th>Id</th>";
@@ -42,6 +44,8 @@ foreach ($alleKategorien as $kategorie) {
 echo "</tbody>";
 
 echo "</table>";
+
+echo "</div>";
 
 
 include "fuss.php";
