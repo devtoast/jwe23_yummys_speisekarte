@@ -1,50 +1,59 @@
 <?php
 
+//Verbindung herstellen
+$db_connection = mysqli_connect("localhost", "root", "", "yummys");
+mysqli_set_charset($db_connection, "utf8");
 
-$db = mysqli_connect("localhost", "root", "", "yummys");
-mysqli_set_charset($db, "utf8");
-
-mysqli_query($db, "DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVAL 365 DAY AND aktiv = 0") or die(mysqli_error($db));
-
-
-
-
-
-/*
-$sql_befehl = ("DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVAL 365 DAY AND aktiv = 0");
-$result = mysqli_query($db, $sql_befehl) or die(mysqli_error($db));
-
-if ($result) {
-    $sql_befehl;
-    echo "Status: ok";
+// Verbindung prüfen
+// mysqli_connect_error – Gibt die Fehlerbeschreibung des letzten Verbindungsfehlers zurück, falls vorhanden.
+// Die Funktion die() entspricht ​​der Funktion exit(). – ist neuer
+if (!$db_connection) {
+    die("Verbindung zur DB fehlgeschlagen: " . mysqli_connect_error());
 } else {
-    echo "Status: Fehler";
+    echo "Verbindung zur DB: OK" . "<br>";
 }
-*/
 
+// SQL-Befehl (LÖSCHE aus "produkte" WO "aenderungsdatum" kleiner/ist JETZT minus 365 Tage UND der Status "aktiv" auf 0 steht)
+$sql_befehl = "DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVAL 365 DAY AND aktiv = 0";
+
+// "mysqli_query" – Abfrage der DB "$db_connection" – Ausführung des Befehls "$sql_befehl"
+if (mysqli_query($db_connection, $sql_befehl)) {
+    echo "Ein Jahr alte Einträge wurden gelöscht.";
+} else {
+    echo "Fehler beim löschen: " . mysqli_error($db_connection);
+}
+
+// mysqli_close – schließt die vorher geöffnete Datenbankverbindung wieder
+mysqli_close($db_connection);
+
+
+//////// OBJEKTORIENTIERT //////////////////////////////////////////////////////////////////////
 
 /*
-$sql_befehl = ("DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVAL 365 DAY AND aktiv = 0");
-
-function loeschenJahr($sql_befehl)
-{
-    global $db;
-    global $sql_befehl;
-    $result = mysqli_query($db, $sql_befehl) or die(mysqli_error($db));
-    return $result;
-    if ($result) {
-        $sql_befehl;
-        echo "Status: ok";
-    } else {
-        echo "Status: Fehler";
-    }
+//Verbindung herstellen
+$db_connection = new mysqli("localhost", "root", "", "yummys");
+// Verbindung prüfen
+if ($db_connection->connect_error) {
+    die("Connection failed: " . $db_connection->connect_error);
 }
-*/
 
+// SQL-Befehl (LÖSCHE aus "produkte" WO "aenderungsdatum" kleiner/ist JETZT minus 365 Tage UND der Status "aktiv" auf 0 steht)
+$sql_befehl = "DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVAL 365 DAY AND aktiv = 0";
+
+// "mysqli_query" – Abfrage der DB "$db_connection" – Ausführung des Befehls "$sql_befehl"
+if ($db_connection->query($sql_befehl) === TRUE) {
+    echo "Record deleted successfully";
+} else {
+    echo "Error deleting record: " . $db_connection->error;
+}
+
+// Verbindung zur DB wieder schließen
+$db_connection->close();
+*/
 
 /*
 echo "<pre>";
-print_r($db);
+print_r($db_connection);
 echo "<pre>";
 */
 
