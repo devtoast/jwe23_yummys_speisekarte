@@ -136,7 +136,7 @@ if ($erfolg) {
                                                                     echo htmlspecialchars($_POST["beschreibung"]);
                                                                 } else if (!empty($produkt)) {
                                                                     echo htmlspecialchars($produkt->beschreibung);
-                                                                } ?></textarea>
+                                                                } ?></textarea> <!-- vorausfüllen -->
             </div>
 
 
@@ -164,7 +164,7 @@ if ($erfolg) {
                                                                                     echo htmlspecialchars($_POST["preis"]);
                                                                                 } else if (!empty($produkt)) {
                                                                                     echo htmlspecialchars($produkt->preis);
-                                                                                } ?>">
+                                                                                } ?>"> <!-- vorausfüllen -->
             </div>
 
 
@@ -175,7 +175,7 @@ if ($erfolg) {
                                                                                     echo htmlspecialchars($_POST["menge"]);
                                                                                 } else if (!empty($produkt)) {
                                                                                     echo htmlspecialchars($produkt->menge);
-                                                                                } ?>">
+                                                                                } ?>"> <!-- vorausfüllen -->
             </div>
 
 
@@ -186,7 +186,7 @@ if ($erfolg) {
                                                                             echo htmlspecialchars($_POST["einheit"]);
                                                                         } else if (!empty($produkt)) {
                                                                             echo htmlspecialchars($produkt->einheit);
-                                                                        } ?>">
+                                                                        } ?>"> <!-- vorausfüllen -->
             </div>
 
 
@@ -197,7 +197,7 @@ if ($erfolg) {
                                                                                     echo htmlspecialchars($_POST["anlagedatum"]);
                                                                                 } else if (!empty($produkt)) {
                                                                                     echo htmlspecialchars($produkt->anlagedatum);
-                                                                                } ?>">
+                                                                                } ?>"> <!-- vorausfüllen -->
             </div>
 
 

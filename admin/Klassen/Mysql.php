@@ -34,6 +34,7 @@ class Mysql
     private \mysqli $db;
     // (\Backslash bei PHP Eigenobjekten - jedenfalls bei eigenen Namespaces)
 
+    // __construct – PHP ruft diese Funktion automatisch auf, wenn ein Objekt aus einer Klasse erstellt wird.
     private function __construct()
     {
         $this->verbinden();

@@ -25,7 +25,7 @@ if (!empty($_POST)) {
     $validieren->istAusgefuellt($_POST["anlagedatum"], "Anlagedatum");
 
     if (!$validieren->fehlerAufgetreten()) {
-        // alles ok -> speichern
+        // alles ok -> speichern (neues Produkt in die DB)
         $produkt = new Produkt(array(
             "id" => $_GET["id"] ?? null,
             // wenn id vorhanden, dann verwenden, sonst den Wert rechts

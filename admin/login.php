@@ -145,7 +145,7 @@ if (!empty($_POST)) {
         </div>
     </footer>
 
-    <!--  <script src="../js/login.js"></script> -->
+
 
 </body>
 

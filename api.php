@@ -106,6 +106,7 @@ if ($parameter[0] == "kategorien") {
                 "status" => 1,
                 "result" => array()
             );
+            ////////////////////////////////////// ALLE KATEGORIEN ////
             // Liste aller Kategorien (Vorspeisen, Hauptspeisen… (ohne Produkte))
             $result = query("SELECT * FROM kategorien ORDER BY id ASC");
             // query – aus funktionen.php
@@ -117,16 +118,16 @@ if ($parameter[0] == "kategorien") {
             // json_encode — Liefert die JSON-Darstellung eines Wertes
             exit;
         } else {
+            ////////////////////////////////////// ALLE PRODUKTE EINER KATEGORIE ////
             if (!empty($parameter[2]) && ($parameter[2] == "produkte")) {
-                //echo "Geht";
+                //wenn (z.B.: (p0)kategorien/(p1)2/(p2)produkte) +++++ p0 - Hauptmethode / p1 - genauere Spezifizierung / p2 noch genauere Spezifizierung +++++
                 $ausgabe = array(
                     "status" => 1,
                     "result" => array()
                 );
                 $sql_kategorie_id = escape($parameter[1]);
-                // $result = query("SELECT * FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}' AND aktiv = 1 ORDER BY produkte.id ASC");
+                // escape - Maskiert Sonderzeichen (vermeidet SQL-Injections)- Eigenfunktion (aus funktionen.php)
                 $result = query("SELECT produkte.titel, produkte.beschreibung, produkte.waehrung, produkte.preis, produkte.menge, produkte.einheit, produkte.kategorie_id FROM produkte WHERE kategorie_id = '{$sql_kategorie_id}' AND aktiv = 1");
-                // $produkt = mysqli_fetch_assoc($result); // WEG
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     $ausgabe["result"][] = $row;
@@ -135,7 +136,7 @@ if ($parameter[0] == "kategorien") {
                 echo json_encode($ausgabe);
                 exit;
             } else {
-                ///////// ID wurde übergeben - Detail einer Kategorie ausgeben /////////
+                ///////// ID wurde übergeben - DETAIL EINER KATEGORIE /////////
                 $ausgabe = array(
                     "status" => 1
                 );
@@ -156,7 +157,7 @@ if ($parameter[0] == "kategorien") {
             }
         }
     }
-    ////////////////////////////////////// ALLE PRODUKTE
+    ////////////////////////////////////// ALLE PRODUKTE //// (p0)produkte/(p1)list
 } else if ($parameter[0] == "produkte") {
     if (!empty($parameter[1])) {
         if ($parameter[1] == "list") {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 25. Mai 2023 um 15:42
+-- Erstellungszeit: 26. Mai 2023 um 16:24
 -- Server-Version: 10.4.27-MariaDB
 -- PHP-Version: 8.2.0
 
@@ -45,7 +45,7 @@ CREATE TABLE `benutzer` (
 --
 
 INSERT INTO `benutzer` (`id`, `vorname`, `nachname`, `benutzername`, `passwort`, `email`, `login_last`, `login_count`, `boss`, `mini_boss`) VALUES
-(1, 'Thomas', 'Astleithner', 'toast', '$2y$10$1/9.VmD6UtfXAjSObNKXi.QqQYiQhtNOeN3Dsoal6OKxtGX/LZ9Q6', 'toast@sol.at', '2023-05-25 15:08:27', 110, 0, 0),
+(1, 'Thomas', 'Astleithner', 'toast', '$2y$10$1/9.VmD6UtfXAjSObNKXi.QqQYiQhtNOeN3Dsoal6OKxtGX/LZ9Q6', 'toast@sol.at', '2023-05-26 16:07:41', 122, 0, 0),
 (2, 'Manuel', 'Obermoser', 'maniobi', '$2y$10$C4PpGYHtEzfRibxJg5aWzOiNThIcbItrY2onSSWd/XSDO.gvRKmc2', NULL, '2023-04-11 16:17:29', 1, 0, 0),
 (3, 'Christian', 'Rainer', 'rainchr', '$2y$10$YFzd73Q2BQXnfELdHfSVZOh9r1cuZuKj6q2r9qveCA0HxSiA1OEMq', NULL, '2023-04-11 16:11:06', 2, 0, 0),
 (4, 'Markus', 'Hauser', 'markhaus', '$2y$10$3Wo.16v2PZQT3cqSSEe6l.9qOmsmbEqf67G3Rwr4qXcdKyAdpdpiW', NULL, '2023-04-11 16:05:43', 1, 0, 0);
@@ -98,17 +98,17 @@ CREATE TABLE `produkte` (
 --
 
 INSERT INTO `produkte` (`id`, `titel`, `beschreibung`, `waehrung`, `preis`, `menge`, `einheit`, `anlagedatum`, `aenderungsdatum`, `aktiv`, `kategorie_id`, `restaurant_id`, `benutzer_id`) VALUES
-(3, 'Kaisersmarren', 'mit Zwetschkenröster', '€', 10.2, 300, 'Gramm', '2023-05-12', NULL, 1, 3, NULL, NULL),
+(3, 'Kaisersmarren', 'mit Zwetschkenröster', '€', 10, 300, 'Gramm', '2023-05-12', '2023-05-25', 1, 3, NULL, NULL),
 (4, 'Bier', 'Pils', '€', 5.5, 0.5, 'Liter', '2023-05-05', NULL, 0, 4, NULL, NULL),
 (7, 'Saibling', 'in hauseigener Marinade mit Gemüse der Saison mit würziger Sauce', '€', 15, 200, 'Gramm', '2023-05-10', NULL, 1, 1, NULL, NULL),
 (12, 'Gemischter Salat', 'mit Gemüse der Saison und Putenstreifen', '€', 10.5, 100, 'Gramm', '2023-05-06', NULL, 1, 1, NULL, NULL),
 (14, 'Apfelsaft', '100% Fruchtanteil', '€', 5.3, 0.5, 'Liter', '2023-05-04', NULL, 1, 4, NULL, NULL),
-(15, 'Nudelsuppe', 'Rindsuppe mit hausgemachten Nudeln', '€', 10, 100, 'Gramm', '2023-05-04', NULL, 1, 1, NULL, NULL),
+(15, 'Nudelsuppe', 'Rindsuppe mit hausgemachten Nudeln', '€', 10, 100, 'Gramm', '2023-05-04', '2023-05-25', 0, 1, NULL, NULL),
 (18, 'Sachertorte', 'mit Schokoüberzug und Marmeladenfüllung', '€', 10, 100, 'Gramm', '2023-05-09', NULL, 1, 3, NULL, NULL),
-(20, 'Fruchtsalat', 'mit Äpfel und Birnen', '€', 5, 20.5, 'Gramm', '2023-05-09', NULL, 1, 3, NULL, NULL),
+(20, 'Fruchtsalat', 'mit Äpfel und Birnen', '€', 5, 20.5, 'Gramm', '2023-05-09', '2023-05-26', 0, 3, NULL, NULL),
 (21, 'Zwiebelrostbraten', 'vom Rind mit Semmelknödel', '€', 25, 300, 'Gramm', '2023-05-10', '2023-05-22', 1, 2, NULL, NULL),
-(23, 'Spargelcremesuppe', 'mit frischem Spargel ', '€', 12, 250, 'ml', '2023-05-16', NULL, 1, 1, NULL, NULL),
-(28, 'Gebeizter Saibling', 'Bio-Saibling in Marinade  mit Zwiebel', '€', 12.5, 250, 'Gramm', '2023-05-17', '2023-05-22', 0, 1, NULL, NULL),
+(23, 'Spargelcremesuppe', 'mit frischem Spargel ', '€', 8, 250, 'ml', '2023-05-16', '2023-05-26', 0, 1, NULL, NULL),
+(28, 'Rindfleischsalat', 'Rindfleisch in Marinade mit Zwiebel', '€', 12.5, 250, 'Gramm', '2023-05-25', '2023-05-25', 1, 1, NULL, NULL),
 (29, 'Kasnocken', 'mit Bergkäse und Schnittlauch', '€', 12.5, 500, 'Gramm', '2023-05-18', NULL, 1, 2, NULL, NULL),
 (30, 'Wiener Schnitzel', 'vom Schwein mit Petersilienkartoffel', '€', 18.9, 350, 'Gramm', '2023-05-18', NULL, 1, 2, NULL, NULL),
 (31, 'Spaghetti Bolognese', 'mit Fleischsauce und Parmesan', '€', 17.5, 350, 'Gramm', '2023-05-18', NULL, 1, 2, NULL, NULL),
@@ -119,7 +119,7 @@ INSERT INTO `produkte` (`id`, `titel`, `beschreibung`, `waehrung`, `preis`, `men
 (36, 'Bier', 'Pils', '€', 5, 0.33, 'Liter', '2023-05-18', NULL, 1, 4, NULL, NULL),
 (37, 'Mojito', 'mit Rum, Limettensaft und Minzblätter', '€', 12.3, 250, 'ml', '2023-05-18', NULL, 0, 4, NULL, NULL),
 (38, 'Schnaps', 'Bio-Marillenbrand\r\n40 Vol%', '€', 5.6, 4, 'cl', '2023-05-18', '2023-05-24', 0, 4, NULL, NULL),
-(40, 'test', 'test', '€', 5, 2, 'g', '2023-05-24', '2023-05-24', 1, 1, NULL, NULL);
+(47, 'Gulasch', 'Rind mit Paprikasauce und Nockerl', '€', 15.3, 250, 'Gramm', '2023-05-26', '2023-05-26', 0, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,7 @@ ALTER TABLE `kategorien`
 -- AUTO_INCREMENT für Tabelle `produkte`
 --
 ALTER TABLE `produkte`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT für Tabelle `restaurants`

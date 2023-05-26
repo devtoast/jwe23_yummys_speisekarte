@@ -55,6 +55,7 @@ foreach ($alleProdukteVs as $vorspeise) {
     echo "<td>" . $vorspeise->aktiv . "</td>";
     echo "<td>" . "<a href='produkt_bearbeiten.php?id={$vorspeise->id}'>Bearbeiten</a>" . "<br>"
         . "<a href='produkt_loeschen.php?id={$vorspeise->id}'>Löschen</a>" . "</td>";
+    // $vorspeise->id – gibt die id des Einzelproduktes mit (GENAU dieses Produkt wird bearbeitet/gelöscht)
 
     echo "</tr>";
 }
@@ -102,6 +103,7 @@ foreach ($alleProdukteHs as $hauptspeise) {
     echo "<td>" . $hauptspeise->aktiv . "</td>";
     echo "<td>" . "<a href='produkt_bearbeiten.php?id={$hauptspeise->id}'>Bearbeiten</a>" . "<br>"
         . "<a href='produkt_loeschen.php?id={$hauptspeise->id}'>Löschen</a>" . "</td>";
+    // $hauptspeise->id – gibt die id des Einzelproduktes mit (GENAU dieses Produkt wird bearbeitet/gelöscht)
 
     echo "</tr>";
 }
@@ -148,6 +150,7 @@ foreach ($alleProdukteNs as $nachtspeise) {
     echo "<td>" . $nachtspeise->aktiv . "</td>";
     echo "<td>" . "<a href='produkt_bearbeiten.php?id={$nachtspeise->id}'>Bearbeiten</a>" . "<br>"
         . "<a class='table-delete', href='produkt_loeschen.php?id={$nachtspeise->id}'>Löschen</a>" . "</td>";
+    // $nachspeise->id – gibt die id des Einzelproduktes mit (GENAU dieses Produkt wird bearbeitet/gelöscht)
 
     echo "</tr>";
 }
@@ -194,6 +197,7 @@ foreach ($alleProdukteGe as $getraenk) {
     echo "<td>" . $getraenk->aktiv . "</td>";
     echo "<td>" . "<a href='produkt_bearbeiten.php?id={$getraenk->id}'>Bearbeiten</a>" . "<br>"
         . "<a href='produkt_loeschen.php?id={$getraenk->id}'>Löschen</a>" . "</td>";
+    // $getraenk->id – gibt die id des Einzelproduktes mit (GENAU dieses Produkt wird bearbeitet/gelöscht)
 
     echo "</tr>";
 }

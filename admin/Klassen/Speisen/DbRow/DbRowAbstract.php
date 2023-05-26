@@ -12,7 +12,7 @@ abstract class DbRowAbstract
     private array $daten = array();
 
 
-
+    // __construct – PHP ruft diese Funktion automatisch auf, wenn ein Objekt aus einer Klasse erstellt wird.
     public function __construct(int|array $idOderDaten)
     // oder Daten weil in Produkte Array
     {

@@ -17,12 +17,12 @@ include "kopf.php";
 <div></div>
 <?php
 
-$produkt = new Produkt($_GET["id"]);
+$produkt = new Produkt($_GET["id"]); // aus URL (wird aus produkt_liste mitgegeben)
 //$_GET aus URL
 
 if (!empty($_GET["delete"])) {
-    // Wird in Z41 definiert!
-    // Bestätigungs-Link Z41 wurde geklickt -> wird aus DB gelöscht
+    // Wird in Z43 definiert!
+    // Bestätigungs-Link Z43 wurde geklickt -> wird aus DB gelöscht
     $produkt->entfernen();
     echo "<p>Das Produkt wurde erfolgreich gelöscht!</p>";
 } else {
@@ -46,7 +46,7 @@ if (!empty($_GET["delete"])) {
 
     // oder $_GET["delete"] – Funktion "entfernen()" wird aktiv (DbRowAbstract(Klasse Produkt))
     // URL: ….php?id=7&delete=1
-    // delete aus Z41 = WICHTIG für oben Z23
+    // delete aus Z43 = WICHTIG für oben Z23
 }
 
 include "fuss.php";
