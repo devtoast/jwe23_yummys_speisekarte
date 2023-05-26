@@ -51,6 +51,8 @@ if ($db_connection->query($sql_befehl) === TRUE) {
 $db_connection->close();
 */
 
+////////////////////////////////////////////////////////////////////////
+
 /*
 echo "<pre>";
 print_r($db_connection);
