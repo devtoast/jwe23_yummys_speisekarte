@@ -113,7 +113,7 @@ if (!empty($_POST)) {
                         </div>
 
                         <div class="form-item-bt">
-                            <button id="button-1" type="submit">Einloggen</button>
+                            <button class="button-admin" type="submit">Einloggen</button>
                         </div>
 
                     </form>

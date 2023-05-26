@@ -80,7 +80,7 @@ if ($erfolg) {
 
 
             <div>
-                <button type="submit">Kategorie speichern</button>
+                <button class="button-admin" type="submit">Speichern</button>
             </div>
 
         </form>

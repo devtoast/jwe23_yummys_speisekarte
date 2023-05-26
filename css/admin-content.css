@@ -151,3 +151,46 @@ body {
     text-decoration: underline;
     color: var(--soft-green-dark);
 }
+
+.select-item {
+    height: 10vw;
+    border: none;
+    border-radius: 0;
+    padding: 2vw;
+}
+
+.radio-aktiv {
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    font-size: calc(100vw / 25);
+    color: var(--grey-extra-dark);
+}
+
+.list-delete {
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: var(--grey-extra-dark);
+}
+
+@media (min-width: 600px) {
+
+    .radio-aktiv {
+        font-size: calc(100vw / 40);
+    }
+
+    .select-item {
+        height: 8vw;
+        padding: 2vw;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .radio-aktiv {
+        font-size: 20px;
+    }
+
+    .select-item {
+        height: 50px;
+        padding: 10px;
+    }
+}

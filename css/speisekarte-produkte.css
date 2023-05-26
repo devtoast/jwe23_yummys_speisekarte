@@ -333,7 +333,7 @@ body {
     }
 
     .prod-inner-wrapper {
-        padding: 0 5vw;
+        padding: 0 5vw 5vw 5vw;
     }
 
     #headline-vs {
@@ -443,6 +443,10 @@ body {
         min-height: calc(100vh - 580px);
         margin: auto;
         padding: 0;
+    }
+
+    .prod-inner-wrapper {
+        padding: 0 50px 50px 50px;
     }
 
     #headline-vs {

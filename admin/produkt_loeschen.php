@@ -14,7 +14,7 @@ include "kopf.php";
     <aside id="admin-subline">Sind Sie sicher?</aside>
 </div>
 
-
+<div></div>
 <?php
 
 $produkt = new Produkt($_GET["id"]);
@@ -26,21 +26,22 @@ if (!empty($_GET["delete"])) {
     $produkt->entfernen();
     echo "<p>Das Produkt wurde erfolgreich gelöscht!</p>";
 } else {
-    echo "<p><strong>Kategorie:</strong> " . $produkt->kategorie()->bezeichnung . "</p>" . "<br />";
-    echo "<p><strong>Titel:</strong> " . $produkt->titel . "<br />";
-    echo "<p><strong>Beschreibung:</strong> " . $produkt->beschreibung . "</p>" . "<br />";
-    echo "<p><strong>Währung:</strong> " . $produkt->waehrung . "</p>" . "<br />";
-    echo "<p><strong>Preis:</strong> " . $produkt->preis . "</p>" . "<br />";
-    echo "<p><strong>Menge:</strong> " . $produkt->menge . "</p>" . "<br />";
-    echo "<p><strong>Einheit:</strong> " . $produkt->einheit . "</p>" . "<br />";
-    echo "<p><strong>Anlagedatum:</strong> " . $produkt->anlagedatum . "</p>" . "<br />";
-    echo "<p><strong>Status:</strong> " . $produkt->aktiv . "</p>" . "<br />";
+    echo "<div class='list-delete'>";
+    echo "<p><strong>Kategorie:</strong> " . $produkt->kategorie()->bezeichnung . "</p>";
+    echo "<p><strong>Titel:</strong> " . $produkt->titel . "</p>";
+    echo "<p><strong>Beschreibung:</strong> " . $produkt->beschreibung . "</p>";
+    echo "<p><strong>Währung:</strong> " . $produkt->waehrung . "</p>";
+    echo "<p><strong>Preis:</strong> " . $produkt->preis . "</p>";
+    echo "<p><strong>Menge:</strong> " . $produkt->menge . "</p>";
+    echo "<p><strong>Einheit:</strong> " . $produkt->einheit . "</p>";
+    echo "<p><strong>Anlagedatum:</strong> " . $produkt->anlagedatum . "</p>";
+    echo "<p><strong>Status:</strong> " . $produkt->aktiv . "</p>";
 
     echo "<p>
     <strong><a href='produkt_liste.php' style='color: green'> Nein, abbrechen</a></strong></p>";
     echo "<p>
-    <a href='produkt_loeschen.php?id=" . $produkt->id . "&amp;delete=1' style='color: red'>Ja, löschen</a></p>";
-
+    <strong><a href='produkt_loeschen.php?id=" . $produkt->id . "&amp;delete=1' style='color: red'>Ja, löschen</a></strong></p>";
+    echo "</div>";
     // Entweder zurück zur "produkt_liste"
 
     // oder $_GET["delete"] – Funktion "entfernen()" wird aktiv (DbRowAbstract(Klasse Produkt))

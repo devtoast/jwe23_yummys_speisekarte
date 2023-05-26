@@ -282,13 +282,14 @@ main {
     color: var(--grey-extra-dark);
     width: 70vw;
     height: 10vw;
+    padding: 2vw;
 }
 
 .admin-form div {
     padding-bottom: 8vw;
 }
 
-#button-1 {
+.button-admin {
     font-family: "OpenSans-Light", Arial, Helvetica, sans-serif;
     font-size: calc(100vw / 20);
     border: none;
@@ -302,7 +303,7 @@ main {
 
 }
 
-#button-1:hover {
+.button-admin:hover {
     transition: transform .5s ease;
     transform: scale(0.9);
     background-color: var(--soft-green);
@@ -502,13 +503,14 @@ main {
     .form-item input {
         width: 50vw;
         height: 8vw;
+        padding: 2vw;
     }
 
     .admin-form div {
         padding-bottom: 5vw;
     }
 
-    #button-1 {
+    .button-admin {
         font-size: calc(100vw / 30);
         margin-top: 2vw;
         padding: 2vw;
@@ -637,13 +639,14 @@ main {
         border: solid 1px;
         width: 400px;
         height: 50px;
+        padding: 10px;
     }
 
     .admin-form div {
         padding-bottom: 30px;
     }
 
-    #button-1 {
+    .button-admin {
         font-size: 40px;
         margin-top: 20px;
         padding: 20px;

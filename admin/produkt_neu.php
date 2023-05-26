@@ -71,7 +71,7 @@ if ($erfolg) {
 
             <div class="form-item">
                 <label for="kategorie_id">Kategorie: </label>
-                <select name="kategorie_id" id="kategorie_id">
+                <select class="select-item" name="kategorie_id" id="kategorie_id">
                     <option value="">- Bitte wählen -</option>
 
                     <?php
@@ -108,7 +108,7 @@ if ($erfolg) {
 
             <div class="form-item">
                 <label for="waehrung">Währung: </label>
-                <select name="waehrung" id="waehrung">
+                <select class="select-item" name="waehrung" id="waehrung">
                     <option value="€">€</option>
                     <option value="$">$</option>
                     <option value="£">£</option>
@@ -154,7 +154,7 @@ if ($erfolg) {
             </div>
 
 
-            <div>
+            <div class="radio-aktiv">
                 <label for="aktiv">Aktivieren:</label>
                 <input type="radio" name="aktiv" checked="checked" value="0">Aus
                 <input type="radio" name="aktiv" value="1">Ein
@@ -166,7 +166,7 @@ if ($erfolg) {
             <!--[value]="1" / value sollte eigentliuch int sein, ist aber nicht/ value als String funktioniert wg. Datenbankeinstellung (tinyint) nicht / ist in diesem Fall der value int od. string?-->
 
             <div>
-                <button type="submit">Produkt speichern</button>
+                <button class="button-admin" type="submit">Speichern</button>
             </div>
 
         </form>
