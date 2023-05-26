@@ -42,9 +42,9 @@ $sql_befehl = "DELETE FROM produkte WHERE aenderungsdatum <= NOW() - INTERVAL 36
 
 // "mysqli_query" – Abfrage der DB "$db_connection" – Ausführung des Befehls "$sql_befehl"
 if ($db_connection->query($sql_befehl) === TRUE) {
-    echo "Record deleted successfully";
+    echo "Ein Jahr alte Einträge wurden gelöscht.";
 } else {
-    echo "Error deleting record: " . $db_connection->error;
+    echo "Fehler beim löschen: " . $db_connection->error;
 }
 
 // Verbindung zur DB wieder schließen
