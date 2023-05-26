@@ -54,12 +54,6 @@ $db_connection->close();
 
 ////////////////////////////////////////////////////////////////////////
 
-/*
-echo "<pre>";
-print_r($db_connection);
-echo "<pre>";
-*/
-
 // Lösche aus der DB "produkte" alle Einträge bei denen das Änderungsdatum kleiner als JETZT, 
 // minus 365 Tage (= 1 Jahr) ist (- INTERVAL 1 YEAR sollte auch funktionieren)
 // und der "aktiv"-Status auf null (0) steht.
@@ -73,3 +67,10 @@ echo "<pre>";
 // Bei jeder Änderung würde ein neues Änderungsdatum in der DB gespeichert (inkl. Statusänderung) 
 // bzw. war seit Anlage innerhalb eines Jahres noch nie aktiv (Bei Neuanlage wird ebenfalls ein Änderungsdatum mitgegeben und steht initial auf 0).
 // D.h.: Das Produkt wurde länger als ein Jahr nicht mehr geändert (oder jemals aktiviert) UND steht auf 0 (inaktiv)
+
+
+/*
+echo "<pre>";
+print_r($db_connection);
+echo "<pre>";
+*/
