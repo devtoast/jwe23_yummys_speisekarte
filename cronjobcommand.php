@@ -32,6 +32,7 @@ mysqli_close($db_connection);
 /*
 //Verbindung herstellen
 $db_connection = new mysqli("localhost", "root", "", "yummys");
+
 // Verbindung prüfen
 if ($db_connection->connect_error) {
     die("Connection failed: " . $db_connection->connect_error);
